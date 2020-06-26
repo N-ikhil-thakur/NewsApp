@@ -25,7 +25,7 @@ SECRET_KEY = 'z+v1+7+z4sg@r62#nu3n+&+%g$^exwbq=v=j_i)!-9-)oh#ad9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'news.apps.NewsConfig',
+    'pages.apps.PagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,4 +129,4 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR , 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
