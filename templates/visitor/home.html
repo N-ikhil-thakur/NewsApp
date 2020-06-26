@@ -8,8 +8,23 @@
 </head>
 
 <body>
-    <h1>Hello World </h1>
-    <a href="{% url 'news' newstype='Education'%}">Education</a>
+    <h1>Logo </h1>
+    <!-- use in navbar  -->
+    {% for news_type in news_types %}
+    <a href="{% url 'news' newstype=news_type%}">{{news_type}}</a>
+    {% endfor %}
+    <!-- ---------------------------------- -->
+    <br><br>
+    <!-- it is for news box as shown in the picture i sent you  -->
+    {% for news_type , values in news_types_with_news.items %}
+    {{news_type}}
+    <br>
+    {% for news in values %}
+    {{news}} |
+    {% endfor %}
+    <hr>
+    {% endfor%}
+    <!-- -------------- -->
 </body>
 
 </html>
