@@ -2,29 +2,75 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
+    <link rel="stylesheet" href="{% static '    css/home.css' %}">
 </head>
 
 <body>
-    <h1>Logo </h1>
-    <!-- use in navbar  -->
-    {% for news_type in news_types %}
-    <a href="{% url 'news' newstype=news_type%}">{{news_type}}</a>
-    {% endfor %}
-    <!-- ---------------------------------- -->
-    <br><br>
-    <!-- it is for news box as shown in the picture i sent you  -->
-    {% for news_type , values in news_types_with_news.items %}
-    {{news_type}}
-    <br>
-    {% for news in values %}
-    {{news}} |
-    {% endfor %}
-    <hr>
-    {% endfor%}
-    <!-- -------------- -->
+    <div class="root">
+        <div class="hdr">
+            <div class="logo">
+                <!-- logo image here  -->
+            </div>
+            <div class="date-time-social-links">
+                <div class="date-time">
+                    <!-- calender icon here --> <span class="date">
+                        <!-- date from js--></span>
+                    <!-- clock icon here --> <span class="date">
+                        <!-- time from js--></span>
+                </div>
+                <div class="social-link">
+                    <a href="facebook" class="link">
+                        <!-- facebook icon--></a>
+                    <a href="twitter" class="link">
+                        <!-- twitter icon--></a>
+                    <a href="instagram" class="link">
+                        <!-- instagram icon--></a>
+                    <a href="youtube" class="link">
+                        <!-- youtube icon--></a>
+                </div>
+            </div>
+            <ul>
+                {% for news_type in news_types %}
+                <li class="nbar-itms">
+                    <a class="nbar-itms-anchor" href="{% url 'news' newstype=news_type%}">{{news_type}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="nbr-bx"></div>
+        </div>
+        <br><br>
+        <div class="main">
+            {% for news_type , values in news_types_with_news.items %}
+            <div class="news-bx {{news_type}}">
+                <div class="news-type">
+                    {{news_type}}
+                </div>
+                <div class="news-bx">
+                    {% for news in values %}
+                    <div class="news">
+                        <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
+                        <h2 class="news-hdng">{{news.title}}</h2>
+                        <span class="news-type">{{news.news_type}}</span>
+                        <p class="news-bdy">{{news.body|linebreaks|truncatechars:250}}</p>
+                        <p class="edtor-date"><span class="news-edtor">{{news.editor}}</span><span
+                                class="news-pub-date">{{news.pub_date}}</span></p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            {% endfor%}
+        </div>
+        <div class="ftr">
+
+            <!-- yeshma aafai milayera lekh  -->
+        </div>
+    </div>
+    <script src="{% static 'js/home.js'%}"></script>
 </body>
 
 </html>
