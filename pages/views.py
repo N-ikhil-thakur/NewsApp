@@ -12,9 +12,12 @@ def homepage(request):
             '-pub_date')[:5]
     return render(request, 'visitor/home.html', {
         'news_types': news_types,
-        'news_types_with_news': news_types_with_news})
+        'news_types_with_news': news_types_with_news,
+        'page_type': 'Homepage'})
 
 
 def newsPage(request, newstype):
+    news_types = NewsType.objects.all()
     newstype = NewsType.objects.get(title=newstype)
-    return render(request, 'visitor/news.html', {'newstype': newstype})
+    return render(request, 'visitor/news.html', {
+        'newstype': newstype, 'page_type': newstype, 'news_types': news_types})

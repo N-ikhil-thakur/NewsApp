@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'visitor/home.html'%}
+{% block main%}
+{% for news in newstype.news.all %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{{news.title}}
+<img src="{{news.display_picture.url}}">
+{% endfor%}
 
-<body>
-    {% for news in newstype.news.all %}
-
-    {{news.title}}
-    <img src="{{news.display_picture.url}}">
-    {% endfor%}
-</body>
-
-</html>
+{% endblock main %}

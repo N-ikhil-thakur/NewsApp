@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
-    <link rel="stylesheet" href="{% static '    css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <!-- font awesome cdn -->
+    <script src="https://kit.fontawesome.com/b4ce6ab53b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,36 +16,45 @@
         <div class="hdr">
             <div class="logo">
                 <!-- logo image here  -->
+                <a href="{% url 'homepage' %}">
+                    <figure>
+                        <img src="{% static 'images/logo-placeholder.png'%}" alt="">
+                    </figure>
+                </a>
             </div>
             <div class="date-time-social-links">
                 <div class="date-time">
-                    <!-- calender icon here --> <span class="date">
+                    <i class="far fa-calendar-alt"></i><span class="date">
                         <!-- date from js--></span>
-                    <!-- clock icon here --> <span class="date">
+                    <i class="far fa-clock"></i> <span class="date">
                         <!-- time from js--></span>
                 </div>
                 <div class="social-link">
                     <a href="facebook" class="link">
-                        <!-- facebook icon--></a>
+                        <i class="fab fa-facebook-square"></i></a>
                     <a href="twitter" class="link">
-                        <!-- twitter icon--></a>
+                        <i class="fab fa-twitter-square"></i></a>
                     <a href="instagram" class="link">
-                        <!-- instagram icon--></a>
+                        <i class="fab fa-instagram-square"></i></a>
                     <a href="youtube" class="link">
-                        <!-- youtube icon--></a>
+                        <i class="fab fa-youtube-square"></i></a>
                 </div>
             </div>
-            <ul>
-                {% for news_type in news_types %}
-                <li class="nbar-itms">
-                    <a class="nbar-itms-anchor" href="{% url 'news' newstype=news_type%}">{{news_type}}</a>
-                </li>
-                {% endfor %}
-            </ul>
-            <div class="nbr-bx"></div>
+            <div class="nbr-bx">
+                <ul>
+                    <li class="nbar-items Homepage">
+                        <a class="nbar-items-anchor" href="{% url 'homepage' %}">HomePage</a>
+                    </li>
+                    {% for news_type in news_types %}
+                    <li class="nbar-itms {{news_type}}">
+                        <a class="nbar-itms-anchor" href="{% url 'news' newstype=news_type%}">{{news_type}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-        <br><br>
         <div class="main">
+            {% block main %}
             {% for news_type , values in news_types_with_news.items %}
             <div class="news-bx {{news_type}}">
                 <div class="news-type">
@@ -59,11 +70,18 @@
                         <p class="edtor-date"><span class="news-edtor">{{news.editor}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
                     </div>
+                    <div class="more">
+                        <a href="{% url 'news' newstype=news_type %}">More <i class="fas fa-expand-arrows-alt"></i></a>
+                    </div>
+                    {% empty %}
+                    <div class="empty">
+                        <i class="fas fa-frown"> </i><span class="no-news-msg">No news found .</span>
+                    </div>
                     {% endfor %}
                 </div>
-
             </div>
             {% endfor%}
+            {% endblock main%}
         </div>
         <div class="ftr">
 
@@ -71,6 +89,9 @@
         </div>
     </div>
     <script src="{% static 'js/home.js'%}"></script>
+    <script>
+        document.querySelector('.{{page_type}}').classList.add('selected')
+    </script>
 </body>
 
 </html>
