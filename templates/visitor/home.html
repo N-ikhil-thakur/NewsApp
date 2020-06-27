@@ -6,7 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home_header.css' %}">
+    {% block main_css %}
+    <link rel="stylesheet" href="{% static 'css/home_main.css' %}">
+    {% endblock %}
     <!-- font awesome cdn -->
     <script src="https://kit.fontawesome.com/b4ce6ab53b.js" crossorigin="anonymous"></script>
 </head>
@@ -24,10 +27,10 @@
             </div>
             <div class="date-time-social-links">
                 <div class="date-time">
-                    <i class="far fa-calendar-alt"></i><span class="date">
-                        <!-- date from js--></span>
-                    <i class="far fa-clock"></i> <span class="date">
-                        <!-- time from js--></span>
+                    <span class="date-bx"><i class="far fa-calendar-alt"> </i> <span class="date">
+                            <!-- date from js--></span></span>
+                    <span class="time-bx"><i class="far fa-clock"></i> <span class="time">
+                            <!-- time from js--></span></span>
                 </div>
                 <div class="social-link">
                     <a href="facebook" class="link">
@@ -66,8 +69,8 @@
                         <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
                         <h2 class="news-hdng">{{news.title}}</h2>
                         <span class="news-type">{{news.news_type}}</span>
-                        <p class="news-bdy">{{news.body|linebreaks|truncatechars:250}}</p>
-                        <p class="edtor-date"><span class="news-edtor">{{news.editor}}</span><span
+                        <p class="news-bdy">{{news.body|truncatechars:200}}</p>
+                        <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
                     </div>
                     <div class="more">

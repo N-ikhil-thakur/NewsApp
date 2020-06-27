@@ -1,9 +1,30 @@
 {% extends 'visitor/home.html'%}
+{% load static %}
 {% block main%}
-{% for news in newstype.news.all %}
-
-{{news.title}}
-<img src="{{news.display_picture.url}}">
-{% endfor%}
+<div class="news-grid-bx">
+    {% for news in newses %}
+    <div class="news">
+        <figure>
+            <img class="news-image" src="{{news.display_picture.url}}" alt="Image">
+        </figure>
+        <h2 class="news-title">{{news.title}}</h2>
+        <span class="news-type">{{news.news_type}}</span>
+        <p class="news-body">{{news.body|truncatechars:200}}</p>
+        <p class="editor-date"><span class="news-editor">{{news.editor}}</span> <span
+                class="news-pub-date">{{news.pub_date}}</span></p>
+    </div>
+    {% endfor%}
+</div>
+{% if newses.has_other_pages %}
+<div class="paginator-bar">
+    <div class="left">
+        {% if newses.has_previous %}
+        <a href="?page={{newses.previous_page_number}}">&laquo;</a>
+        {% else%}
+        <span class="paginator-left-disabled">&laquo;</span>
+        {% endif%}
+    </div>
+</div>
+{% endif %}
 
 {% endblock main %}
