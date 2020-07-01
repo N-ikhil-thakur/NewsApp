@@ -6,6 +6,7 @@ from .models import NewsType, News
 class NewsAdmin(admin.StackedInline):
     model = News
     fields = ('title', 'body', 'display_picture', 'editor', 'pub_date')
+    extra = 10
 
 
 class NewsTypeAdmin(admin.ModelAdmin):

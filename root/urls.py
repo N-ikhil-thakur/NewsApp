@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('owner/', admin.site.urls),
-    path('', include('pages.urls'))
+    path('', include('news.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,54 @@
+{% extends 'visitor/home.html' %}
+{% load static %}
+{% block title %}{{news.title}}{% endblock%}
+{% block main %}
+<div class="current-news">
+
+    <figure>
+        {% if news.display_pcture %}
+        <a href="{{news.display_picture.url}}"><img src="{{news.display_picture.url}}" alt=""></a>
+        {% else %}
+        <a href="{{news.display_picture.url}}"><img src="{% static 'images/image_placeholder.png' %}"></a>
+        {% endif %}
+    </figure>
+    <h1 class="news-title">{{news.title}}</h1>
+    <div class="divider"></div>
+    <p class="news-body">
+        {{news.body|linebreaks}}
+    </p>
+    <div class="divider"></div>
+    <p class="editor-date">
+        <span class="editor">Editor:<span class="editor-name">{{news.editor}}</span></span>
+        <span class="editor">Published:<span class="date">{{news.pub_date}}</span></span>
+    </p>
+    <div class="share-btns">
+        <div class="fb-share-button" data-href="{% url 'homepage' %}" data-layout="button" data-size="small">
+            <a target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                class="fb-xfbml-parse-ignore">Share</a>
+        </div>
+        <div class="twitter-share-btn">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                data-url="{% url 'homepage'%}" data-show-count="true" data-size="small">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>
+<div class="divider"></div>
+<div class="suggestions">
+    {% for news in news_suggestions%}
+    <div class="news">
+        {% if news.display_picture %}
+        <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
+        {% else %}
+        <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
+        {% endif %}
+        <h2 class="news-hdng"><a href="{% url 'news_detail' news.news_type news.id%}">{{news.title}}</a></h2>
+        <span class="news-type">{{news.news_type}}</span>
+        <p class="news-bdy">{{news.body|truncatechars:200}}</p>
+        <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
+                class="news-pub-date">{{news.pub_date}}</span></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock main%}

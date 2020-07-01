@@ -15,7 +15,7 @@ class News(models.Model):
     title = models.CharField(max_length=250)
     body = models.TextField()
     display_picture = models.ImageField(
-        default='image.png', null=True, blank=True)
+        default='image_placeholder.png', null=True, blank=True)
     editor = models.CharField(max_length=100, default='SahayogiNews')
     pub_date = models.DateTimeField(default=datetime.datetime.now())
 

@@ -5,16 +5,24 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
+    <title>{% block title %}HomePage{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/home_header.css' %}">
     {% block main_css %}
     <link rel="stylesheet" href="{% static 'css/home_main.css' %}">
     {% endblock %}
+    {% block favicon %}
+    <link rel="shortcut icon" href="{% static 'images/logo-placeholder.png'%}" type="image/x-icon">
+    {% endblock favicon%}
     <!-- font awesome cdn -->
     <script src="https://kit.fontawesome.com/b4ce6ab53b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- facebook share plugin  -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"
+        nonce="9MhxJ60M"></script>
+    <!-- ----------------------------- -->
     <div class="root">
         <div class="hdr">
             <div class="logo">
@@ -66,21 +74,29 @@
                 <div class="news-bx">
                     {% for news in values %}
                     <div class="news">
+                        {% if news.display_picture %}
                         <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
-                        <h2 class="news-hdng">{{news.title}}</h2>
+                        {% else %}
+                        <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
+                        {% endif %}
+                        <h2 class="news-hdng"><a
+                                href="{% url 'news_detail' news.news_type news.id %}">{{news.title}}</a></h2>
                         <span class="news-type">{{news.news_type}}</span>
                         <p class="news-bdy">{{news.body|truncatechars:200}}</p>
                         <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
                     </div>
-                    <div class="more">
-                        <a href="{% url 'news' newstype=news_type %}">More <i class="fas fa-expand-arrows-alt"></i></a>
-                    </div>
+
                     {% empty %}
                     <div class="empty">
                         <i class="fas fa-frown"> </i><span class="no-news-msg">No news found .</span>
                     </div>
                     {% endfor %}
+                    {%if news in values %}
+                    <div class="more">
+                        <a href="{% url 'news' newstype=news_type %}">More <i class="fas fa-expand-arrows-alt"></i></a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             {% endfor%}
