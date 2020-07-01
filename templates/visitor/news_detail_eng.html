@@ -1,8 +1,7 @@
-{% extends 'visitor/home.html' %}
+{% extends 'visitor/home_eng.html' %}
 {% load static %}
-{% block title %}{{news.title}}{% endblock%}
-{% block language_url %} {% url  'news_detail_eng' news.news_type.title_eng news.id %} {% endblock %}
-
+{% block title %}{{news.title_eng}}{% endblock%}
+{% block language_url %} {% url  'news_detail' news.news_type news.id %} {% endblock %}
 {% block main %}
 <div class="current-news">
 
@@ -13,18 +12,18 @@
         <a href="{{news.display_picture.url}}"><img src="{% static 'images/image_placeholder.png' %}"></a>
         {% endif %}
     </figure>
-    <h1 class="news-title">{{news.title}}</h1>
+    <h1 class="news-title">{{news.title_eng}}</h1>
     <div class="divider"></div>
     <p class="news-body">
-        {{news.description|linebreaks}}
+        {{news.description_eng|linebreaks}}
     </p>
     <div class="divider"></div>
     <p class="editor-date">
-        <span class="editor">Editor:<span class="editor-name">{{news.editor}}</span></span>
+        <span class="editor">Editor:<span class="editor-name">{{news.editor_eng}}</span></span>
         <span class="editor">Published:<span class="date">{{news.pub_date}}</span></span>
     </p>
     <div class="share-btns">
-        <div class="fb-share-button" data-href="{% url 'homepage' %}" data-layout="button" data-size="small">
+        <div class="fb-share-button" data-href="{% url 'homepage_eng' %}" data-layout="button" data-size="small">
             <a target="_blank"
                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
                 class="fb-xfbml-parse-ignore">Share</a>
@@ -45,10 +44,11 @@
         {% else %}
         <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
         {% endif %}
-        <h2 class="news-hdng"><a href="{% url 'news_detail' news.news_type news.id%}">{{news.title}}</a></h2>
-        <span class="news-type">{{news.news_type}}</span>
-        <p class="news-bdy">{{news.description|truncatechars:150}}</p>
-        <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
+        <h2 class="news-hdng"><a
+                href="{% url 'news_detail_eng' news.news_type.title_eng news.id%}">{{news.title_eng}}</a></h2>
+        <span class="news-type">{{news.news_type.title_eng}}</span>
+        <p class="news-bdy">{{news.description_eng|truncatechars:150}}</p>
+        <p class="editor-date"><span class="news-editor">{{news.editor_eng}}</span><span
                 class="news-pub-date">{{news.pub_date}}</span></p>
     </div>
     {% endfor %}

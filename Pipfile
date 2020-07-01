@@ -9,6 +9,9 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 djangorestframework = "*"
+pylint = "*"
+autopep8 = "*"
+nepali-date = "*"
 
 [requires]
 python_version = "3.8"

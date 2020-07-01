@@ -5,7 +5,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}गृहपृष्ट{% endblock %}</title>
+    <title>{% block title %}Homepage{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/home_header.css' %}">
     {% block main_css %}
     <link rel="stylesheet" href="{% static 'css/home_main.css' %}">
@@ -17,8 +17,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"
         integrity="sha384-heKROmDHlJdBb+n64p+i+wLplNYUZPaZmp2HZ4J6KCqzmd33FJ8QClrOV3IdHZm5" crossorigin="anonymous">
     </script>
-    <!-- bootstrap  -->
-
+    <!-- <script src="https://kit.fontawesome.com/b4ce6ab53b.js" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
@@ -58,16 +57,17 @@
             <div class="nbr-bx">
                 <ul>
                     <li class="nbar-items Homepage">
-                        <a class="nbar-items-anchor" href="{% url 'homepage' %}">गृहपृष्ट</a>
+                        <a class="nbar-items-anchor" href="{% url 'homepage_eng' %}">HomePage</a>
                     </li>
                     {% for news_type in news_types %}
                     <li class="nbar-itms {{news_type.title_eng}}">
-                        <a class="nbar-itms-anchor" href="{% url 'news' newstype=news_type%}">{{news_type}}</a>
+                        <a class="nbar-itms-anchor"
+                            href="{% url 'news_eng' newstype=news_type.title_eng%}">{{news_type.title_eng}}</a>
                     </li>
                     {% endfor %}
                     <li class="language-changer">
-                        <a href="{% block language_url%}{% url 'homepage_eng'%}{% endblock %}"><i
-                                class="fas fa-globe-asia"></i>English</a>
+                        <a href="{% block language_url%}{% url 'homepage'%}{% endblock %}"><i
+                                class="fas fa-globe-asia"></i>Nepali</a>
                     </li>
                 </ul>
             </div>
@@ -88,22 +88,22 @@
                         <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
                         {% endif %}
                         <h2 class="news-hdng"><a
-                                href="{% url 'news_detail' news.news_type news.id %}">{{news.title}}</a></h2>
-                        <span class="news-type">{{news.news_type}}</span>
-                        <p class="news-bdy">{{news.description|truncatechars:150}}</p>
-                        <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
+                                href="{% url 'news_detail_eng' news.news_type.title_eng news.id %}">{{news.title_eng}}</a>
+                        </h2>
+                        <span class="news-type">{{news.news_type.title_eng}}</span>
+                        <p class="news-bdy">{{news.description_eng|truncatechars:150}}</p>
+                        <p class="editor-date"><span class="news-editor">{{news.editor_eng}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
                     </div>
 
                     {% empty %}
                     <div class="empty">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span class="no-news-msg">No news found .</span>
+                        <i class="fas fa-exclamation-circle"> </i><span class="no-news-msg">No news found .</span>
                     </div>
                     {% endfor %}
-                    {% if  values.all %}
+                    {%if  values.all %}
                     <div class="more">
-                        <a href="{% url 'news' newstype=news_type %}">View All
+                        <a href="{% url 'news_eng' newstype=news_type%}">View All
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square"
                                 fill="Green" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -115,6 +115,7 @@
                             </svg>
                         </a>
                     </div>
+
                     {% endif %}
                 </div>
             </div>
@@ -128,7 +129,7 @@
     </div>
     <script src="{% static 'js/home.js'%}"></script>
     <script>
-        if ('{{page_type.title_eng}}' == '') {
+        if ('{{page_type.title_eng}}' == "") {
             document.querySelector('.{{page_type}}').classList.add('selected');
         } else {
             document.querySelector('.{{page_type.title_eng}}').classList.add('selected');

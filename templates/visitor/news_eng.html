@@ -1,7 +1,7 @@
-{% extends 'visitor/home.html'%}
+{% extends 'visitor/home_eng.html'%}
 {% load static %}
-{% block title %}{{page_type}}{% endblock title%}
-{% block language_url%}{% url 'news_eng' newstype=page_type.title_eng %}{% endblock%}
+{% block title %}{{page_type.title_eng}}{% endblock title%}
+{% block language_url%}{% url 'news' newstype=page_type%}{% endblock%}
 {% block main%}
 <div class="news-grid-bx">
     {% for news in newses %}
@@ -25,16 +25,16 @@
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
-        <h2 class="news-title"><a href="{% url 'news_detail' news.news_type news.id%}">{{news.title}}</a></h2>
-        <span class="news-type">{{news.news_type}}</span>
+        <h2 class="news-title"><a
+                href="{% url 'news_detail_eng' news.news_type.title_eng news.id%}">{{news.title_eng}}</a></h2>
+        <span class="news-type">{{news.news_type.title_eng}}</span>
         <p class="news-body">{{news.body|truncatechars:150}}</p>
-        <p class="editor-date"><span class="news-editor">{{news.editor}}</span> <span
+        <p class="editor-date"><span class="news-editor">{{news.editor_eng}}</span> <span
                 class="news-pub-date">{{news.pub_date}}</span></p>
     </div>
     {% empty %}
     <div class="empty-bx">
-        <h2 class="empty-message">
-            <i class="fas fa-exclamation-circle"></i> No news found .</h2>
+        <h2 class="empty-message"><i class="fas fa-exclamation-circle"> </i> No news found .</h2>
     </div>
     {% endfor%}
 </div>
