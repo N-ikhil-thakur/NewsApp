@@ -47,7 +47,7 @@
         {% endif %}
         <h2 class="news-hdng"><a href="{% url 'news_detail' news.news_type news.id%}">{{news.title}}</a></h2>
         <span class="news-type">{{news.news_type}}</span>
-        <p class="news-bdy">{{news.description|truncatechars:150}}</p>
+        <p class="news-bdy">{{news.description|truncatechars:100}}</p>
         <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
                 class="news-pub-date">{{news.pub_date}}</span></p>
     </div>

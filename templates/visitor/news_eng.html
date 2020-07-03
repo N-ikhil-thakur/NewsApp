@@ -28,7 +28,7 @@
         <h2 class="news-title"><a
                 href="{% url 'news_detail_eng' news.news_type.title_eng news.id%}">{{news.title_eng}}</a></h2>
         <span class="news-type">{{news.news_type.title_eng}}</span>
-        <p class="news-body">{{news.body|truncatechars:150}}</p>
+        <p class="news-body">{{news.description_eng|truncatechars:100}}</p>
         <p class="editor-date"><span class="news-editor">{{news.editor_eng}}</span> <span
                 class="news-pub-date">{{news.pub_date}}</span></p>
     </div>

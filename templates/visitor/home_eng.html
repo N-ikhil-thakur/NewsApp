@@ -17,7 +17,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"
         integrity="sha384-heKROmDHlJdBb+n64p+i+wLplNYUZPaZmp2HZ4J6KCqzmd33FJ8QClrOV3IdHZm5" crossorigin="anonymous">
     </script>
-    <!-- <script src="https://kit.fontawesome.com/b4ce6ab53b.js" crossorigin="anonymous"></script> -->
+
+    <!-- owl carousel  -->
+    <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css'%}">
 </head>
 
 <body>
@@ -30,7 +33,7 @@
         <div class="hdr">
             <div class="logo">
                 <!-- logo image here  -->
-                <a href="{% url 'homepage' %}">
+                <a href="{% url 'homepage_eng' %}">
                     <figure>
                         <img src="{% static 'images/logo-placeholder.png'%}" alt="">
                     </figure>
@@ -79,7 +82,7 @@
                 <div class="news-type">
                     {{news_type}}
                 </div>
-                <div class="news-bx">
+                <div class="news-bx owl-carousel owl-theme">
                     {% for news in values %}
                     <div class="news">
                         {% if news.display_picture %}
@@ -91,7 +94,7 @@
                                 href="{% url 'news_detail_eng' news.news_type.title_eng news.id %}">{{news.title_eng}}</a>
                         </h2>
                         <span class="news-type">{{news.news_type.title_eng}}</span>
-                        <p class="news-bdy">{{news.description_eng|truncatechars:150}}</p>
+                        <p class="news-bdy">{{news.description_eng|truncatechars:100}}</p>
                         <p class="editor-date"><span class="news-editor">{{news.editor_eng}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
                     </div>
@@ -127,6 +130,11 @@
             <!-- yeshma aafai milayera lekh  -->
         </div>
     </div>
+    <!-- owl carousel  -->
+    <!-- jquery cdn  -->
+    <script src="{% static 'js/OwlCarousel2-2.3.4/docs_src/assets/vendors/jquery.min.js'%}"></script>
+    <script src="{% static 'js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js'%}"></script>
+    <!-- local scripts  -->
     <script src="{% static 'js/home.js'%}"></script>
     <script>
         if ('{{page_type.title_eng}}' == "") {
@@ -134,6 +142,30 @@
         } else {
             document.querySelector('.{{page_type.title_eng}}').classList.add('selected');
         }
+
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: false,
+                margin: 20,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    450: {
+                        items: 2
+                    },
+                    750: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    },
+
+                }
+            })
+        });
     </script>
 </body>
 

@@ -19,6 +19,10 @@
     </script>
     <!-- bootstrap  -->
 
+    <!-- owl carousel  -->
+    <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css'%}">
+
 </head>
 
 <body>
@@ -75,11 +79,11 @@
         <div class="main">
             {% block main %}
             {% for news_type , values in news_types_with_news.items %}
-            <div class="news-bx {{news_type}}">
+            <div class="news-container {{news_type}}">
                 <div class="news-type">
                     {{news_type}}
                 </div>
-                <div class="news-bx">
+                <div class="news-bx owl-carousel owl-theme">
                     {% for news in values %}
                     <div class="news">
                         {% if news.display_picture %}
@@ -90,7 +94,7 @@
                         <h2 class="news-hdng"><a
                                 href="{% url 'news_detail' news.news_type news.id %}">{{news.title}}</a></h2>
                         <span class="news-type">{{news.news_type}}</span>
-                        <p class="news-bdy">{{news.description|truncatechars:150}}</p>
+                        <p class="news-bdy">{{news.description|truncatechars:100}}</p>
                         <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
                     </div>
@@ -126,6 +130,11 @@
             <!-- yeshma aafai milayera lekh  -->
         </div>
     </div>
+    <!-- owl carousel  -->
+    <!-- jquery cdn  -->
+    <script src="{% static 'js/OwlCarousel2-2.3.4/docs_src/assets/vendors/jquery.min.js'%}"></script>
+    <script src="{% static 'js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js'%}"></script>
+    <!-- ------------------ -->
     <script src="{% static 'js/home.js'%}"></script>
     <script>
         if ('{{page_type.title_eng}}' == '') {
@@ -133,6 +142,30 @@
         } else {
             document.querySelector('.{{page_type.title_eng}}').classList.add('selected');
         }
+
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: false,
+                margin: 20,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    450: {
+                        items: 2
+                    },
+                    750: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    },
+
+                }
+            })
+        });
     </script>
 </body>
 
