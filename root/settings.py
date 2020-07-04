@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    # 'admin_interface',
+    # 'colorfield',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +45,10 @@ INSTALLED_APPS = [
 
     'django_cleanup.apps.CleanupConfig',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+GRAPPELLI_ADMIN_TITLE = "Sahayogi News Administration"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

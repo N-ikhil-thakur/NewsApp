@@ -8,10 +8,12 @@ verify_ssl = true
 [packages]
 django = "*"
 pillow = "*"
-djangorestframework = "*"
 pylint = "*"
 autopep8 = "*"
 nepali-date = "*"
+django-admin-interface = "*"
+django-inline-actions = "*"
+django-grappelli = "*"
 
 [requires]
 python_version = "3.8"

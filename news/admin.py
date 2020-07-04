@@ -1,6 +1,10 @@
 from django.contrib import admin
+
 from .models import NewsType, News, Links
 # Register your models here.
+
+from django.urls import reverse
+from django.shortcuts import redirect
 
 
 class NewsAdmin(admin.StackedInline):
@@ -9,9 +13,8 @@ class NewsAdmin(admin.StackedInline):
 
 
 class NewsTypeAdmin(admin.ModelAdmin):
-    model = NewsType
-    list_display = ['title', 'title_eng']
     inlines = [NewsAdmin, ]
+    list_display = ['title', 'title_eng']
 
 
 admin.site.register(NewsType, NewsTypeAdmin)
