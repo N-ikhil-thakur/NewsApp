@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
 ]
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
 GRAPPELLI_ADMIN_TITLE = "Sahayogi News Administration"
 
 
