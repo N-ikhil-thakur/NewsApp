@@ -43,30 +43,70 @@ body {
 }
 
 .date-time-social-links {
-    /* background: rgb(25, 151, 88); */
     display: flex;
-    padding: 10px;
+    padding: 7px 10px;
     flex-direction: row;
     font-size: 18px;
+    color: teal;
 }
 
 .date-time {
     width: auto;
+    margin: auto;
+}
 
+.date-bx {
+    margin: 0 2px;
+}
+
+.time-bx {
+    margin: 0 2px;
 }
 
 .social-link {
     text-align: right;
     width: auto;
+    margin: auto;
 }
 
 .social-link a {
-    color: rgb(8, 161, 85);
     text-decoration: none;
     margin: 0 2px;
+    color: teal;
 }
 
-.language-changer {
-    background: rgb(8, 161, 85);
+.nbr-bx {
+    width: 100%;
+    background: red;
+    /* padding: 10px; */
+}
+
+.nbr-bx ul {
+    list-style: none;
+}
+
+.nbr-bx ul li {
+    float: left;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    overflow: auto;
+    padding: 5px;
+}
+
+.nbr-bx ul .selected {
+    background: teal;
+}
+
+.nbr-bx ul li:hover {
+    background: teal;
+}
+
+.nbr-bx ul li a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
     color: white;
+    font: bolder;
+    font-size: 20px;
 }

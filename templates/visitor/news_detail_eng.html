@@ -1,6 +1,9 @@
 {% extends 'visitor/home_eng.html' %}
 {% load static %}
 {% block title %}{{news.title_eng}}{% endblock%}
+{% block main_css%}
+<link rel="stylesheet" href="{% static 'css/news_detail_main.css'%}">
+{% endblock%}
 {% block language_url %} {% url  'news_detail' news.news_type news.id %} {% endblock %}
 {% block main %}
 <div class="current-news">
