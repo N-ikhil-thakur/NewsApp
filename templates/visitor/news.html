@@ -2,7 +2,8 @@
 {% load static %}
 {% block title %}{{page_type}}{% endblock title%}
 {% block main_css%}
-<link rel="stylesheet" href="{% static 'css/news_main.css'%}">{% endblock%}
+<link rel="stylesheet" href="{% static 'css/news_main.css'%}">
+{% endblock%}
 {% block language_url%}{% url 'news_eng' newstype=page_type.title_eng %}{% endblock%}
 {% block main%}
 <div class="news-grid-bx">
