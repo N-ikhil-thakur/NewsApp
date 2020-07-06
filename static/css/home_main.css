@@ -1,0 +1,23 @@
+.main {
+    width: 100%;
+}
+
+.news-container {
+    margin: 30px 0 0 0;
+    background: white;
+    border-radius: 3px;
+}
+
+.news-type-bx {
+    background: teal;
+    padding: 5px 10px;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.news-bx {
+    padding: 10px;
+    min-height: 150px;
+    /* max-height: 250px; */
+}

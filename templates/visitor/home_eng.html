@@ -76,8 +76,8 @@
         <div class="main">
             {% block main %}
             {% for news_type , values in news_types_with_news.items %}
-            <div class="news-bx {{news_type}}">
-                <div class="news-type">
+            <div class="news-container {{news_type}}">
+                <div class="news-type-bx">
                     {{news_type}}
                 </div>
                 <div class="news-bx owl-carousel owl-theme">

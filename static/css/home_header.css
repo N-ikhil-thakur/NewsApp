@@ -40,7 +40,7 @@ body {
     display: flex;
     justify-content: center;
     color: black;
-    background: rgb(243, 240, 240);
+    background: rgb(231, 229, 229);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -185,8 +185,8 @@ body {
 
 .ftr div {
     width: 30%;
-    margin: 0 auto 0 0;
     display: flex;
+    margin: 0 auto 0 auto;
     flex-direction: column;
     align-items: center;
     background: white;
@@ -293,6 +293,7 @@ body {
 .youtube {
     color: red;
 }
+
 
 
 
