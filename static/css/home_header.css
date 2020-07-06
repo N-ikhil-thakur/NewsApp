@@ -20,6 +20,7 @@ body {
 .root {
     width: 90%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 .hdr {
@@ -77,36 +78,48 @@ body {
 
 .nbr-bx {
     width: 100%;
-    background: red;
-    /* padding: 10px; */
+    background: rgb(204, 36, 36);
+    display: flex;
+    flex-flow: column wrap;
+    overflow-x: auto;
+    height: 40px;
+    position: relative;
 }
 
-.nbr-bx ul {
+/* .nbr-bx ul {
     list-style: none;
-}
+} */
 
-.nbr-bx ul li {
-    float: left;
-    height: 100%;
+.nbr-bx .nbar-itms {
+    display: block;
     width: 20%;
+    height: 100%;
     text-align: center;
     overflow: auto;
-    padding: 5px;
+    padding: 7px;
+
+
 }
 
-.nbr-bx ul .selected {
+.nbr-bx .selected {
     background: teal;
 }
 
-.nbr-bx ul li:hover {
+.nbr-bx .nbar-itms:hover {
     background: teal;
 }
 
-.nbr-bx ul li a {
+.nbr-bx .nbar-itms a {
     text-decoration: none;
     height: 100%;
     width: 100%;
     color: white;
     font: bolder;
     font-size: 20px;
+    display: inline-block;
+}
+
+.nbr-bx .language-changer-bx {
+    position: absolute;
+    right: 0%;
 }
