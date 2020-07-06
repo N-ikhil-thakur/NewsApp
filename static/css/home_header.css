@@ -1,7 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Noto+Sans+TC:wght@500&family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scrollbar-width: thin;
+
+}
+
+::-webkit-scrollbar {
+    height: 7px;
+
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(211, 204, 204);
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(184, 180, 180);
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(216, 151, 151);
 }
 
 :root,
@@ -15,6 +39,9 @@ body {
     overflow-x: hidden;
     display: flex;
     justify-content: center;
+    color: black;
+    background: rgb(243, 240, 240);
+    font-family: 'Roboto', sans-serif;
 }
 
 .root {
@@ -49,6 +76,7 @@ body {
     flex-direction: row;
     font-size: 18px;
     color: teal;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .date-time {
@@ -72,8 +100,27 @@ body {
 
 .social-link a {
     text-decoration: none;
-    margin: 0 2px;
     color: teal;
+    padding: 3px;
+    border-radius: 5px;
+    transition: all 0.2s ease-out;
+}
+
+.social-link .language-changer {
+    background: teal;
+    color: white;
+    border-radius: 5px;
+    padding: 3px 7px;
+}
+
+.social-link .language-changer:hover {
+    background: white;
+    color: teal;
+}
+
+.social-link a:hover {
+    background: teal;
+    color: white;
 }
 
 .nbr-bx {
@@ -82,23 +129,25 @@ body {
     display: flex;
     flex-flow: column wrap;
     overflow-x: auto;
-    height: 40px;
+    height: 50px;
     position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-/* .nbr-bx ul {
-    list-style: none;
-} */
+.nbr-bx.nep {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+
 
 .nbr-bx .nbar-itms {
-    display: block;
     width: 20%;
     height: 100%;
     text-align: center;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 7px;
-
-
+    transition: all 0.2s ease-out;
 }
 
 .nbr-bx .selected {
@@ -116,10 +165,183 @@ body {
     color: white;
     font: bolder;
     font-size: 20px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nbr-bx .language-changer-bx {
     position: absolute;
     right: 0%;
+}
+
+
+.ftr {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 50px 0;
+}
+
+.ftr div {
+    width: 30%;
+    margin: 0 auto 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    color: rgb(77, 77, 77);
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+.ftr div .div-type {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    font-size: 20px;
+    color: teal;
+}
+
+.ftr div .div-type span {
+    margin-right: 10px;
+    background: rgba(0, 128, 128, 0.733);
+    border-radius: 50%;
+    padding: 7px;
+    color: white;
+}
+
+.contact-info-bx img {
+    height: 100px;
+    width: auto;
+}
+
+.contact-info-bx .contact-info {
+    display: flex;
+    width: 90%;
+}
+
+.contact-info-bx .contact-info p {
+    text-align: left;
+    width: 95%;
+    margin: 3px 0;
+}
+
+.contact-info-bx .contact-info h4 {
+    color: teal;
+    font-size: 20px;
+    width: 95%;
+    margin: 5px 0 0 0;
+}
+
+.contact-info-bx .contact-info .darta-no {
+    font-size: 12px;
+    margin: 0 0 20px 0;
+}
+
+.contact-info-bx .contact-info .website a {
+    color: teal;
+    text-decoration: none;
+}
+
+.contact-info-bx .contact-info .website a:hover {
+    color: tomato;
+}
+
+.social-media-links p {
+    width: 95%;
+    padding: 15px 5px;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+
+}
+
+.social-media-links p a {
+    color: teal;
+    font: bold;
+    text-decoration: none;
+}
+
+.social-media-links p a:hover {
+    color: tomato;
+}
+
+.social-media-links p .logo {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.facebook {
+    color: rgb(39, 39, 224);
+}
+
+.twitter {
+    color: skyblue;
+}
+
+.linkedin {
+    color: turquoise;
+}
+
+.instagram {
+    color: deeppink;
+}
+
+.youtube {
+    color: red;
+}
+
+
+
+.developers-contact-info .breaker {
+    width: 95%;
+    text-align: center;
+}
+
+.developers-contact-info .seperator {
+    height: 2px;
+    width: 95%;
+    border: none;
+    padding: 0;
+    margin: 20px 0px;
+    background: rgb(212, 208, 208);
+}
+
+.developers-contact-info p {
+    width: 95%;
+    margin: 3px 0;
+    padding: 5px;
+}
+
+.developers-contact-info p .title {
+    color: rgb(216, 29, 29);
+    font: bolder;
+    float: left;
+}
+
+.developers-contact-info p span {
+    float: left;
+}
+
+.developers-contact-info p span a {
+    text-decoration: none;
+    color: teal;
+}
+
+.developers-contact-info p span a:hover {
+    color: tomato;
+}
+
+.developers-contact-info .links {
+    width: 95%;
+    text-align: center;
+}
+
+.developers-contact-info .links a {
+    text-decoration: none;
+    margin: 0 7px 0 0;
+    font-size: 17px;
 }

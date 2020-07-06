@@ -47,30 +47,30 @@
                             <!-- time from js--></span></span>
                 </div>
                 <div class="social-link">
+                    <strong><a href="{% block language_url%}{% url 'homepage'%}{% endblock %}"
+                            class="language-changer"><i class="fas fa-globe-asia"></i>Nepali</a></strong>
                     <a href="{{links.facebook}}" class="link">
-                        <i class="fab fa-facebook-square"></i></a>
+                        <i class="fab fa-facebook"></i></a>
                     <a href="{{links.twitter}}" class="link">
-                        <i class="fab fa-twitter-square"></i></a>
+                        <i class="fab fa-twitter"></i></a>
                     <a href="{{links.instagram}}" class="link">
-                        <i class="fab fa-instagram-square"></i></a>
+                        <i class="fab fa-instagram"></i></a>
                     <a href="{{links.youtube}}" class="link">
-                        <i class="fab fa-youtube-square"></i></a>
-                    <a href="{% block language_url%}{% url 'homepage'%}{% endblock %}" class="language-changer"><i
-                            class="fas fa-globe-asia"></i>Nepali</a>
+                        <i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="nbr-bx">
-                <ul>
-                    <li class="nbar-items Homepage">
-                        <a class="nbar-items-anchor" href="{% url 'homepage_eng' %}">HomePage</a>
-                    </li>
-                    {% for news_type in news_types %}
-                    <li class="nbar-itms {{news_type.title_eng}}">
-                        <a class="nbar-itms-anchor"
-                            href="{% url 'news_eng' newstype=news_type.title_eng%}">{{news_type.title_eng}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
+            <div class="nbr-bx" eng>
+
+                <div class="nbar-itms Homepage">
+                    <a class="nbar-itms-anchor" href="{% url 'homepage_eng' %}">HomePage</a>
+                </div>
+                {% for news_type in news_types %}
+                <div class="nbar-itms {{news_type.title_eng}}">
+                    <a class="nbar-itms-anchor"
+                        href="{% url 'news_eng' newstype=news_type.title_eng%}">{{news_type.title_eng}}</a>
+                </div>
+                {% endfor %}
+
             </div>
         </div>
         <div class="main">
@@ -128,26 +128,23 @@
             <div class="contact-info-bx">
 
                 <div class="div-type">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="green   "
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
-                    </svg>
-                    Contact
+                    <span> <i class="fas fa-envelope"></i>
+                    </span>
+                    <strong>Contact</strong>
                 </div>
                 <img src="{% static 'images/logo_eng.png'%}" height="auto" width="350px">
                 <div class="contact-info">
                     <h4 class="org-name">
-                        सहयोगी समूह प्रा . लि
+                        Sahayogi Samhua Pvt Ltd.
                     </h4>
                     <p class="darta-no">
                         Information Department Registration No : Unknown
                     </p>
                     <p class="address">
-                        sahayogi Samuha Pvt . Ltd Chandrapur,Rauthat,Nepal
+                        Sahayogi Samuha Pvt . Ltd Chandrapur, Rauthat, Nepal
                     </p>
                     <p class="email">
-                        sahayogisamuha@gmail.com
+                        Email:sahayogisamuha@gmail.com
                     </p>
                     <p class="phone">
                         Phone:+977-9812345678 , +977-9876543210
@@ -162,14 +159,10 @@
             <div class="social-media-links">
 
                 <div class="div-type">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share" fill="red"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M11.724 3.947l-7 3.5-.448-.894 7-3.5.448.894zm-.448 9l-7-3.5.448-.894 7 3.5-.448.894z" />
-                        <path fill-rule="evenodd"
-                            d="M13.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-11-6.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
-                    </svg>
-                    Social Media
+                    <span>
+                        <i class="fas fa-share-alt"></i>
+                    </span>
+                    <strong>Social Media</strong>
                 </div>
                 <p class="facebook">
                     <span class="logo"><i class="fab fa-facebook-square"></i></span>
@@ -193,11 +186,8 @@
             <div class="developers-contact-info">
 
                 <div class="div-type">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-braces" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z" />
-                    </svg> Developers
+                    <span><i class="fas fa-laptop-code"></i></span>
+                    <strong>Developers</strong>
                 </div>
                 <p class="developed-by">
                     <span class="title">Developed By : </span>
@@ -211,14 +201,19 @@
                     <span class="title">Contact : </span>
                     <span class="contact"> <strong>+977-9844547919</strong> ,<strong> +977-9865719240</strong></span>
                 </p>
+                <p class="website-bx">
+                    <span class="title">Web :</span>
+                    <span class="website"><a href="http://changaa.ml">www.changaa.ml</a></span>
+                </p>
+                <div class="seperator"></div>
                 <div class="breaker">
                     Social Media Links
                 </div>
                 <p class="links">
-                    <span><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></span>
-                    <span><a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a></span>
-                    <span><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></span>
-                    <span><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></span>
+                    <a href="https://facebook.com" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://linkedin.com" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" class="instagram"><i class="fab fa-instagram"></i></a>
                 </p>
 
             </div>
