@@ -9,7 +9,7 @@
 }
 
 ::-webkit-scrollbar {
-    height: 7px;
+    height: 5px;
 
 }
 
@@ -44,6 +44,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
 .root {
     width: 97%;
     height: 100%;
@@ -65,9 +69,15 @@ body {
     justify-content: center;
 }
 
+.logo figure {
+    padding: 0;
+    /* width: 300px; */
+    height: 110px;
+}
+
 .logo img {
-    width: 350px;
-    height: auto;
+    width: auto;
+    height: 100%;
 }
 
 .date-time-social-links {
@@ -75,6 +85,7 @@ body {
     padding: 7px 10px;
     flex-direction: row;
     font-size: 18px;
+    font-weight: bold;
     color: teal;
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -129,9 +140,30 @@ body {
     display: flex;
     flex-flow: column wrap;
     overflow-x: auto;
+    scroll-behavior: smooth;
     height: 50px;
-    position: relative;
     font-family: 'Roboto Condensed', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.nbr-bx-floating {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    margin: 0;
+    animation: grow 0.05s linear 1;
+    height: 40px;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .nbr-bx.nep {
@@ -359,6 +391,27 @@ body {
 
 
 
+.scroll-to-top {
+    height: 40px;
+    width: 40px;
+    background: rgb(204, 36, 36);
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.scroll-to-top-hidden {
+    display: none;
+}
 
 
 @media only screen and (max-width: 680px) {
@@ -374,6 +427,13 @@ body {
         width: 40%;
     }
 
+    *::-webkit-scrollbar {
+        height: 3px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: gray;
+    }
 }
 
 @media only screen and (min-width: 680px) {
@@ -401,6 +461,10 @@ body {
 @media only screen and (min-width: 992px) {
     .root {
         width: 90%;
+    }
+
+    .nbr-bx .nbar-itms {
+        width: 20%;
     }
 
     .ftr div {

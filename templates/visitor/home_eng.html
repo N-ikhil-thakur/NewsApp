@@ -5,7 +5,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Homepage{% endblock %}</title>
+    <title>{% block title %}Sahayogi:Digital Newspaper Nepal{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/home_header.css' %}">
     {% block main_css %}
     <link rel="stylesheet" href="{% static 'css/home_main.css' %}">
@@ -84,9 +84,13 @@
                     {% for news in values %}
                     <div class="news">
                         {% if news.display_picture %}
-                        <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
+                        <a href="{% url 'news_detail_eng' news.news_type.title_eng news.id %}">
+                            <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
+                        </a>
                         {% else %}
-                        <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
+                        <a href="{% url 'news_detail_eng' news.news_type.title_eng news.id %}">
+                            <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
+                        </a>
                         {% endif %}
                         <h2 class="news-hdng"><a
                                 href="{% url 'news_detail_eng' news.news_type.title_eng news.id %}">{{news.title_eng}}</a>
@@ -102,14 +106,6 @@
                         <i class="fas fa-exclamation-circle"> </i><span class="no-news-msg">No news found .</span>
                     </div>
                     {% endfor %}
-                    <!-- {%if  values.all %}
-                    <div class="news">
-                        <a href="{% url 'news_eng' newstype=news_type%}">View All
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-
-                    {% endif %} -->
                 </div>
             </div>
             {% endfor%}
@@ -212,9 +208,11 @@
             </div>
 
         </div>
+        <div class="scroll-to-top scroll-to-top-hidden">
+            <i class="fas fa-long-arrow-alt-up"></i>
+        </div>
+    </div>
 
-    </div>
-    </div>
     <!-- owl carousel  -->
     <!-- jquery cdn  -->
     <script src="{% static 'js/OwlCarousel2-2.3.4/docs_src/assets/vendors/jquery.min.js'%}"></script>
@@ -248,6 +246,27 @@
                 }
             })
         });
+        window.addEventListener('scroll', () => {
+            let target = document.querySelector(".date-time-social-links")
+            if (window.pageYOffset > target.offsetTop + target.scrollHeight) {
+                document.querySelector('.nbr-bx').classList.add('nbr-bx-floating');
+            } else {
+                console.log("hi")
+                document.querySelector('.nbr-bx').classList.remove('nbr-bx-floating');
+            }
+            if (window.pageYOffset > 1200) {
+                document.querySelector('.scroll-to-top').classList.remove('scroll-to-top-hidden')
+            } else {
+                document.querySelector('.scroll-to-top').classList.add('scroll-to-top-hidden')
+            }
+        });
+        document.querySelector('.scroll-to-top').addEventListener('click', (e) => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
+        })
     </script>
 </body>
 

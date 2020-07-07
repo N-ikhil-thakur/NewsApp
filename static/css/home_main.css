@@ -22,11 +22,11 @@
 }
 
 .owl-theme .owl-dots .owl-dot span {
-    background: rgba(134, 55, 55, 0.808) !important;
+    background: rgba(185, 178, 178) !important;
 }
 
 .owl-theme .owl-dots .active span {
-    background: red !important;
+    background: #cc2424 !important;
 }
 
 .news {
