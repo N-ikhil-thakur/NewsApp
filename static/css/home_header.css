@@ -2,9 +2,9 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
     scrollbar-width: thin;
+    margin: 0;
 
 }
 
@@ -40,12 +40,12 @@ body {
     display: flex;
     justify-content: center;
     color: black;
-    background: rgb(231, 229, 229);
+    background: rgb(230, 229, 229);
     font-family: 'Roboto', sans-serif;
 }
 
 .root {
-    width: 90%;
+    width: 97%;
     height: 100%;
     overflow-x: hidden;
 }
@@ -107,8 +107,8 @@ body {
 }
 
 .social-link .language-changer {
-    background: teal;
-    color: white;
+    /* background: teal; */
+    color: teal;
     border-radius: 5px;
     padding: 3px 7px;
 }
@@ -179,28 +179,32 @@ body {
 .ftr {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     margin: 20px 0 50px 0;
 }
 
 .ftr div {
-    width: 30%;
+    width: 32%;
     display: flex;
-    margin: 0 auto 0 auto;
     flex-direction: column;
     align-items: center;
     background: white;
     color: rgb(77, 77, 77);
     border-radius: 5px;
     padding: 10px;
+    margin: 10px 0;
 
+}
+
+.ftr div:nth-child(2) {
+    margin: 10px auto 10px auto;
 }
 
 .ftr div .div-type {
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 20px;
+    padding: 20px 10px;
     font-size: 20px;
     color: teal;
 }
@@ -209,7 +213,11 @@ body {
     margin-right: 10px;
     background: rgba(0, 128, 128, 0.733);
     border-radius: 50%;
-    padding: 7px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
 }
 
@@ -256,6 +264,7 @@ body {
     display: flex;
     flex-direction: row;
     font-size: 16px;
+    margin: 5px 0;
 
 }
 
@@ -319,8 +328,9 @@ body {
 
 .developers-contact-info p .title {
     color: rgb(216, 29, 29);
-    font: bolder;
+    font-weight: bolder;
     float: left;
+
 }
 
 .developers-contact-info p span {
@@ -346,3 +356,56 @@ body {
     margin: 0 7px 0 0;
     font-size: 17px;
 }
+
+
+
+
+
+@media only screen and (max-width: 680px) {
+    .ftr div {
+        width: 100%;
+    }
+
+    .date-time-social-links {
+        font-size: 14px;
+    }
+
+    .nbr-bx .nbar-itms {
+        width: 40%;
+    }
+
+}
+
+@media only screen and (min-width: 680px) {
+    .ftr div {
+        width: 48%;
+    }
+
+    .ftr div:nth-child(2) {
+        margin: 10px auto 10px auto;
+    }
+
+    .nbr-bx .nbar-itms {
+        width: 35%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+
+    .nbr-bx .nbar-itms {
+        width: 25%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .root {
+        width: 90%;
+    }
+
+    .ftr div {
+        width: 32%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {}

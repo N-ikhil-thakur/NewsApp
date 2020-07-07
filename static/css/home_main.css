@@ -10,7 +10,7 @@
 
 .news-type-bx {
     background: teal;
-    padding: 5px 10px;
+    padding: 10px 10px;
     color: white;
     font-size: 20px;
     margin-bottom: 5px;
@@ -19,5 +19,86 @@
 .news-bx {
     padding: 10px;
     min-height: 150px;
-    /* max-height: 250px; */
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    background: rgba(134, 55, 55, 0.808) !important;
+}
+
+.owl-theme .owl-dots .active span {
+    background: red !important;
+}
+
+.news {
+    height: 100%;
+    /* border-right: 2px solid black; */
+    /* padding: 5px; */
+}
+
+.news .news-dspy-pic {
+    height: 200px;
+    width: auto;
+}
+
+.news .news-hdng {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.news .news-hdng a {
+    text-decoration: none;
+    color: rgb(34, 99, 219);
+    transition: all 0.2s ease-out;
+}
+
+.news .news-hdng a:hover {
+    color: #cc2424;
+}
+
+.news .news-type {
+    background: #cc2424;
+    color: white;
+    padding: 5px 10px;
+}
+
+.news .news-bdy {
+    color: rgb(100, 99, 99);
+    margin: 20px 0;
+}
+
+.news .editor-date {
+    display: block;
+}
+
+.news .editor-date .news-editor {
+    float: left;
+    font-weight: bold;
+}
+
+.news .editor-date .news-pub-date {
+    float: right;
+    font-weight: bold;
+}
+
+.news-bx .empty {
+    color: #cc2424;
+}
+
+
+@media only screen and (max-width:500px) {
+    .news .news-dspy-pic {
+        height: 200px;
+    }
+}
+
+@media only screen and (min-width:500px) {
+    .news .news-dspy-pic {
+        height: 250px;
+    }
+}
+
+@media only screen and (min-width:690px) {
+    .news .news-dspy-pic {
+        height: 200px;
+    }
 }
