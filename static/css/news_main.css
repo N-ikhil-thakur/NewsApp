@@ -1,0 +1,211 @@
+.main {
+    width: 100%;
+}
+
+.news-grid-bx {
+    width: 100%;
+    margin: 20px 0;
+    display: grid;
+    gap: 30px 5%;
+    grid-template-columns: 30% 30% 30%;
+}
+
+.news {
+    background: white;
+    padding: 10px;
+    border-radius: 0px;
+}
+
+.news img {
+    width: 100%;
+    height: 200px;
+}
+
+.news .share-btns {
+    width: 100%;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.news .share-btns div {
+    width: auto;
+    margin: 2px 0 2px 5px;
+    padding: 0;
+}
+
+.news .news-title {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.news .news-title a {
+    text-decoration: none;
+    color: rgb(34, 99, 219);
+    transition: all 0.2s ease-out;
+}
+
+.news .news-title a:hover {
+    color: #cc2424;
+}
+
+.news .news-type {
+    background: #cc2424;
+    color: white;
+    padding: 5px 10px;
+}
+
+.news .news-body {
+    color: rgb(100, 99, 99);
+    margin: 20px 0;
+}
+
+.news .editor-date {
+    display: block;
+}
+
+.news .editor-date .news-editor {
+    float: left;
+    font-weight: bold;
+    color: #cc2424;
+}
+
+.news .editor-date .news-pub-date {
+    float: right;
+    font-weight: bold;
+}
+
+.empty-bx {
+    width: 95vw;
+    height: 300px;
+    display: table;
+
+}
+
+.empty-message {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #cc2424;
+}
+
+.paginator-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.paginator-bar div {
+    text-align: center;
+    width: auto;
+    overflow-x: auto;
+}
+
+.paginator-bar div a {
+    color: white;
+    text-decoration: none;
+}
+
+.paginator-bar div .disabled {
+    background: gray !important;
+}
+
+.paginator-bar .left a,
+.paginator-bar .right a,
+.paginator-bar .left span,
+.paginator-bar .right span {
+    padding: 10px 30px;
+    background: teal;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+
+.paginator-bar div a:hover {
+    background: gray;
+}
+
+.paginator-bar div span:hover {
+    background: gray;
+}
+
+
+
+
+.paginator-bar .middle ul {
+    list-style: none;
+    display: block;
+}
+
+.paginator-bar .middle ul li {
+    float: left;
+    background: teal;
+    color: white;
+    margin: 0 1px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.paginator-bar .middle ul li:hover {
+    background: gray;
+}
+
+.paginator-bar .middle ul li a,
+.paginator-bar .middle ul li span {
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+
+.paginator-bar .middle ul .active {
+    background: #cc2424;
+}
+
+
+@media only screen and (max-width:500px) {
+    .news .news-image {
+        height: 200px;
+    }
+
+    .news-grid-bx {
+        grid-template-columns: 100%;
+        gap: 30px 0%;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width:500px) {
+    .news .news-image {
+        height: 250px;
+    }
+
+    .news-grid-bx {
+        grid-template-columns: 97%;
+        gap: 30px 0%;
+    }
+}
+
+@media only screen and (min-width:690px) {
+    .news .news-image {
+        height: 200px;
+    }
+
+    .news-grid-bx {
+        grid-template-columns: 48% 48%;
+        gap: 30px 4%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .news-grid-bx {
+        grid-template-columns: 32% 32% 32%;
+        gap: 30px 2%;
+    }
+}

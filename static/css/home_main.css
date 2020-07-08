@@ -1,5 +1,9 @@
 .main {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
 }
 
 .news-container {
@@ -10,11 +14,25 @@
 
 .news-type-bx {
     background: teal;
-    padding: 10px 10px;
     color: white;
     font-size: 20px;
     margin-bottom: 5px;
+    transition: all 0.2s ease;
 }
+
+.news-type-bx a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.news-type-bx:hover.news-type-bx {
+    background: #cc2424;
+}
+
 
 .news-bx {
     padding: 10px;
@@ -73,6 +91,7 @@
 .news .editor-date .news-editor {
     float: left;
     font-weight: bold;
+    color: #cc2424;
 }
 
 .news .editor-date .news-pub-date {

@@ -41,7 +41,7 @@ def newsPage(request, newstype):
     news_types = NewsType.objects.all()
     links = Links.objects.all()[0]
     newstype = NewsType.objects.get(title=newstype)
-    newses_list = News.objects.filter(news_type=newstype)
+    newses_list = News.objects.filter(news_type=newstype).order_by('-pub_date')
     page = request.GET.get('page', 1)
 
     paginator = Paginator(newses_list, 9)
@@ -61,7 +61,7 @@ def newsPage_eng(request, newstype):
     news_types = NewsType.objects.all()
     links = Links.objects.all()[0]
     newstype = NewsType.objects.get(title_eng=newstype)
-    newses_list = News.objects.filter(news_type=newstype)
+    newses_list = News.objects.filter(news_type=newstype).order_by('-pub_date')
     page = request.GET.get('page', 1)
 
     paginator = Paginator(newses_list, 9)

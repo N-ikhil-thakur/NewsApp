@@ -32,11 +32,9 @@
     <div class="root">
         <div class="hdr">
             <div class="logo">
-                <!-- logo image here  -->
                 <figure>
-                    <a href="{% url 'homepage_eng' %}">
-                        <img height="auto" width="450px" src="{% static 'images/logo_eng.png'%}" alt="">
-                    </a>
+                    <abbr title="Sahayogi:Digital Newspaper Nepal"><img src="{% static 'images/logo_eng.png'%}"
+                            height="auto" width="450px" alt=""></abbr>
                 </figure>
             </div>
             <div class="date-time-social-links">
@@ -47,16 +45,18 @@
                             <!-- time from js--></span></span>
                 </div>
                 <div class="social-link">
-                    <strong><a href="{% block language_url%}{% url 'homepage'%}{% endblock %}"
-                            class="language-changer"><i class="fas fa-globe-asia"></i>Nepali</a></strong>
-                    <a href="{{links.facebook}}" class="link">
-                        <i class="fab fa-facebook"></i></a>
-                    <a href="{{links.twitter}}" class="link">
-                        <i class="fab fa-twitter"></i></a>
-                    <a href="{{links.instagram}}" class="link">
-                        <i class="fab fa-instagram"></i></a>
-                    <a href="{{links.youtube}}" class="link">
-                        <i class="fab fa-youtube"></i></a>
+                    <abbr title="Translate To Nepali"><strong>
+                            <a href="{% block language_url%}{% url 'homepage'%}{% endblock %}" class="language-changer">
+                                <i class="fas fa-globe-asia"></i>Nepali</a>
+                        </strong></abbr>
+                    <abbr title="Like us on facebook"><a href="{{links.facebook}}" class="link facebook ">
+                            <i class="fab fa-facebook"></i></a></abbr>
+                    <abbr title="Follow us on twitter"><a href="{{links.twitter}}" class="link twitter">
+                            <i class="fab fa-twitter"></i></a></abbr>
+                    <abbr title="Follow us on instagram"><a href="{{links.instagram}}" class="link instagram">
+                            <i class="fab fa-instagram"></i></a></abbr>
+                    <abbr title="Subscribe youtube channel"><a href="{{links.youtube}}" class="link youtube">
+                            <i class="fab fa-youtube"></i></a></abbr>
                 </div>
             </div>
             <div class="nbr-bx" eng>
@@ -78,7 +78,7 @@
             {% for news_type , values in news_types_with_news.items %}
             <div class="news-container {{news_type}}">
                 <div class="news-type-bx">
-                    {{news_type}}
+                    <a href="{% url 'news_eng' newstype=news_type%}"> {{news_type}}</a>
                 </div>
                 <div class="news-bx owl-carousel owl-theme">
                     {% for news in values %}
@@ -153,20 +153,20 @@
                     </span>
                     <strong>Social Media</strong>
                 </div>
-                <p class="facebook">
-                    <span class="logo"><i class="fab fa-facebook-square"></i></span>
+                <p class="facebook-link">
+                    <span class="logo facebook"><i class="fab fa-facebook"></i></span>
                     <span class="description"><a href="{{links.facebook}}">Like us on facebook</a></span>
                 </p>
-                <p class="twitter">
-                    <span class="logo"><i class="fab fa-twitter-square"></i></span>
+                <p class="twitter-link">
+                    <span class="logo twitter"><i class="fab fa-twitter "></i></span>
                     <span class="description"><a href="{{links.twitter}}">Follow us on twitter</a></span>
                 </p>
-                <p class="instagram">
-                    <span class="logo"><i class="fab fa-instagram-square"></i></span>
+                <p class="instagram-link">
+                    <span class="logo instagram"><i class="fab fa-instagram "></i></span>
                     <span class="description"><a href="{{links.instagram}}">Follow us on instagram</a></span>
                 </p>
-                <p class="youtube">
-                    <span class="logo"><i class="fab fa-youtube-square"></i></span>
+                <p class="youtube-link">
+                    <span class="logo youtube"><i class="fab fa-youtube "></i></span>
                     <span class="description"><a href="{{links.youtube}}">Subscribe our youtube channel</a></span>
                 </p>
 

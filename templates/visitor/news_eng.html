@@ -17,7 +17,7 @@
             {% endif %}
         </figure>
         <div class="share-btns">
-            <div class="fb-share-button" data-href="{% url 'homepage' %}" data-layout="button" data-size="small">
+            <div class="fb-share-button" data-href="{% url 'homepage' %}" data-layout="button_count" data-size="small">
                 <a target="_blank"
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
                     class="fb-xfbml-parse-ignore">Share</a>
@@ -37,7 +37,7 @@
     </div>
     {% empty %}
     <div class="empty-bx">
-        <h2 class="empty-message"><i class="fas fa-exclamation-circle"> </i> No news found .</h2>
+        <h2 class="empty-message"><i class="fas fa-exclamation-circle"> </i> No news of this type .</h2>
     </div>
     {% endfor%}
 </div>
@@ -47,12 +47,16 @@
 <div class="paginator-bar">
     <div class="left">
         {% if newses.has_previous %}
-        <a href="?page={{newses.previous_page_number}}">&laquo;</a>
+        <a href="?page={{newses.previous_page_number}}">
+            <i class="fas fa-arrow-left"></i>
+        </a>
         {% else%}
-        <span class="paginator-left-disabled">&laquo;</span>
+        <span class="paginator-left-disabled disabled">
+            <i class="fas fa-arrow-left"></i>
+        </span>
         {% endif%}
     </div>
-    <div class="midlle">
+    <div class="middle">
         <ul class="page-number-bx">
             {% for i in newses.paginator.page_range%}
             {% if newses.number == i %}
@@ -65,9 +69,13 @@
     </div>
     <div class="right">
         {% if newses.has_next %}
-        <a href="?page={{newses.next_page_number}}">&raquo;</a>
+        <a href="?page={{newses.next_page_number}}">
+            <i class="fas fa-arrow-right"></i>
+        </a>
         {% else%}
-        <span class="paginator-left-disabled">&raquo;</span>
+        <span class="paginator-right-disabled disabled">
+            <i class="fas fa-arrow-right"></i>
+        </span>
         {% endif %}
     </div>
 </div>

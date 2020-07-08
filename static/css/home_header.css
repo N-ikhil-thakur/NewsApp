@@ -5,7 +5,6 @@
     padding: 0;
     scrollbar-width: thin;
     margin: 0;
-
 }
 
 ::-webkit-scrollbar {
@@ -48,8 +47,21 @@ body::-webkit-scrollbar {
     width: 5px;
 }
 
+body::-webkit-scrollbar-thumb {
+    background: rgb(43, 42, 42);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(78, 77, 77);
+}
+
+abbr[title] {
+    text-decoration: none;
+    cursor: inherit;
+}
+
 .root {
-    width: 97%;
+    width: 98%;
     height: 100%;
     overflow-x: hidden;
 }
@@ -82,7 +94,7 @@ body::-webkit-scrollbar {
 
 .date-time-social-links {
     display: flex;
-    padding: 7px 10px;
+    padding: 7px 5px;
     flex-direction: row;
     font-size: 18px;
     font-weight: bold;
@@ -96,11 +108,18 @@ body::-webkit-scrollbar {
 }
 
 .date-bx {
-    margin: 0 2px;
+    margin: 2px 2px 2px 0;
+    background: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+
 }
 
 .time-bx {
-    margin: 0 2px;
+    margin: 5px 2px;
+    background: white;
+    padding: 2px 5px;
+    border-radius: 5px;
 }
 
 .social-link {
@@ -111,7 +130,7 @@ body::-webkit-scrollbar {
 
 .social-link a {
     text-decoration: none;
-    color: teal;
+    background: white;
     padding: 3px;
     border-radius: 5px;
     transition: all 0.2s ease-out;
@@ -125,14 +144,14 @@ body::-webkit-scrollbar {
 }
 
 .social-link .language-changer:hover {
-    background: white;
-    color: teal;
-}
-
-.social-link a:hover {
     background: teal;
     color: white;
 }
+
+/* .social-link a:hover {
+    background: rgb(236, 234, 234);
+    color: white;
+} */
 
 .nbr-bx {
     width: 100%;
@@ -212,7 +231,7 @@ body::-webkit-scrollbar {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    margin: 20px 0 50px 0;
+    margin: 20px 0 10px 0;
 }
 
 .ftr div {
@@ -292,7 +311,7 @@ body::-webkit-scrollbar {
 
 .social-media-links p {
     width: 95%;
-    padding: 15px 5px;
+    padding: 0;
     display: flex;
     flex-direction: row;
     font-size: 16px;
@@ -315,24 +334,55 @@ body::-webkit-scrollbar {
     font-size: 20px;
 }
 
+.social-media-links p span {
+    padding: 2px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
 .facebook {
     color: rgb(39, 39, 224);
+}
+
+.facebook:hover {
+    color: white;
+    background: rgb(39, 39, 224);
 }
 
 .twitter {
     color: skyblue;
 }
 
+.twitter:hover {
+    color: white;
+    background: skyblue;
+}
+
 .linkedin {
     color: turquoise;
+}
+
+.linkedin:hover {
+    color: white;
+    background: turquoise;
 }
 
 .instagram {
     color: deeppink;
 }
 
+.instagram:hover {
+    color: white;
+    background: deeppink;
+}
+
 .youtube {
     color: red;
+}
+
+.youtube:hover {
+    color: white;
+    background: red;
 }
 
 
@@ -362,7 +412,6 @@ body::-webkit-scrollbar {
     color: rgb(216, 29, 29);
     font-weight: bolder;
     float: left;
-
 }
 
 .developers-contact-info p span {
@@ -387,9 +436,27 @@ body::-webkit-scrollbar {
     text-decoration: none;
     margin: 0 7px 0 0;
     font-size: 17px;
+    padding: 3px 5px;
+    transition: all 0.2s ease;
+    border-radius: 5px;
+}
+
+.copyright {
+    width: 100vw;
+    background: white;
+    color: rgb(155, 147, 147);
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
 }
 
 
+
+
+.copyright .site-by a {
+    text-decoration: none;
+    color: teal;
+}
 
 .scroll-to-top {
     height: 40px;
@@ -434,6 +501,10 @@ body::-webkit-scrollbar {
     *::-webkit-scrollbar-thumb {
         background: gray;
     }
+
+    .copyright {
+        font-size: 13px;
+    }
 }
 
 @media only screen and (min-width: 680px) {
@@ -460,7 +531,7 @@ body::-webkit-scrollbar {
 
 @media only screen and (min-width: 992px) {
     .root {
-        width: 90%;
+        width: 93%;
     }
 
     .nbr-bx .nbar-itms {
