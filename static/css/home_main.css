@@ -73,6 +73,31 @@
     color: #cc2424;
 }
 
+.news .news-type-share-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.news .news-type-share-btns div {
+    width: auto;
+}
+
+.share-btns {
+    width: auto;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.share-btns div {
+    width: auto;
+    margin: 2px 0 2px 5px;
+    padding: 0;
+}
+
 .news .news-type {
     background: #cc2424;
     color: white;

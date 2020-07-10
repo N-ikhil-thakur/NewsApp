@@ -9,26 +9,33 @@
 <div class="news-grid-bx">
     {% for news in newses %}
     <div class="news">
-        {% if news.display_picture %}
-        <img class="news-image" src="{{news.display_picture.url}}" alt="Image">
-        {% else %}
-        <img class="news-image" src="{% static 'images/image_placeholder.png'%}" alt="Image">
-        {% endif %}
-
-        <div class="share-btns">
-            <div class="fb-share-button" data-href="{% url 'homepage' %}" data-layout="button_count" data-size="small">
-                <a target="_blank"
-                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                    class="fb-xfbml-parse-ignore">Share</a>
-            </div>
-            <div class="twitter-share-btn">
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                    data-url="{% url 'homepage'%}" data-show-count="true" data-size="small">Tweet</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="{% url 'news_detail' news.news_type news.id %}">
+            <figure>
+                {% if news.display_picture %}
+                <img class="news-image" src="{{news.display_picture.url}}" alt="Image">
+                {% else %}
+                <img class="news-image" src="{% static 'images/image_placeholder.png'%}" alt="Image">
+                {% endif %}
+            </figure>
+        </a>
+        <h2 class="news-title"><a href="{% url 'news_detail' news.news_type news.id%}">{{news.title}}</a></h2>
+        <div class="news-type-share-btns">
+            <div class="news-type">{{news.news_type}}</div>
+            <div class="share-btns">
+                <div class="fb-share-button" data-href="{% url 'news_detail' news.news_type news.id %}"
+                    data-layout="button_count" data-size="small">
+                    <a target="_blank"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                        class="fb-xfbml-parse-ignore">Share</a>
+                </div>
+                <div class="twitter-share-btn" style="margin-top: 4px;">
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                        data-url="{% url 'news_detail' news.news_type news.id %}" data-show-count="true"
+                        data-size="small">Tweet</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
             </div>
         </div>
-        <h2 class="news-title"><a href="{% url 'news_detail' news.news_type news.id%}">{{news.title}}</a></h2>
-        <span class="news-type">{{news.news_type}}</span>
         <p class="news-body">{{news.description|truncatechars:100}}</p>
         <p class="editor-date"><span class="news-editor">{{news.editor}}</span> <span
                 class="news-pub-date">{{news.pub_date}}</span></p>

@@ -13,35 +13,39 @@
 {% endblock%}
 {% block language_url %} {% url  'news_detail' news.news_type news.id %} {% endblock %}
 {% block main %}
-<div class="current-news">
+<div class="container">
+    <div class="current-news">
 
-    <figure>
-        {% if news.display_picture %}
-        <a href="{{news.display_picture.url}}"><img src="{{news.display_picture.url}}" alt=""></a>
-        {% else %}
-        <a href="{{news.display_picture.url}}"><img src="{% static 'images/image_placeholder.png' %}"></a>
-        {% endif %}
-    </figure>
-    <h1 class="news-title">{{news.title_eng}}</h1>
-    <div class="divider"></div>
-    <p class="news-body">
-        {{news.description_eng|linebreaks}}
-    </p>
-    <div class="divider"></div>
-    <p class="editor-date">
-        <span class="editor">Editor:<span class="editor-name">{{news.editor_eng}}</span></span>
-        <span class="editor">Published:<span class="date">{{news.pub_date}}</span></span>
-    </p>
-    <div class="share-btns">
-        <div class="fb-share-button" data-href="{% url 'homepage_eng' %}" data-layout="button" data-size="small">
-            <a target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                class="fb-xfbml-parse-ignore">Share</a>
+        <figure>
+            {% if news.display_picture %}
+            <a href="{{news.display_picture.url}}"><img src="{{news.display_picture.url}}" alt=""></a>
+            {% else %}
+            <a href="{{news.display_picture.url}}"><img src="{% static 'images/image_placeholder.png' %}"></a>
+            {% endif %}
+        </figure>
+        <h1 class="news-title">{{news.title_eng}}</h1>
+        <div class="divider"></div>
+        <div class="news-body">
+            {{news.description_eng|linebreaks}}
         </div>
-        <div class="twitter-share-btn">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                data-url="{% url 'homepage'%}" data-show-count="true" data-size="small">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="divider"></div>
+        <p class="editor-date">
+            <span class="editor">Editor:<span class="editor-name">{{news.editor_eng}}</span></span>
+            <span class="pub-date">Published:<span class="date">{{news.pub_date}}</span></span>
+        </p>
+        <div class="share-btns">
+            <div class="fb-share-button" data-href="{% url 'news_detail' news.news_type.title_eng news.id %}"
+                data-layout="button_count" data-size="large">
+                <a target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">Share</a>
+            </div>
+            <div class="twitter-share-btn" style="margin-top: 6px;">
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                    data-url="{% url 'news_detail' news.news_type.title_eng news.id %}" data-show-count="true"
+                    data-size="large">Tweet</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
         </div>
     </div>
 </div>

@@ -98,7 +98,24 @@
                         {% endif %}
                         <h2 class="news-hdng"><a
                                 href="{% url 'news_detail' news.news_type news.id %}">{{news.title}}</a></h2>
-                        <span class="news-type">{{news.news_type}}</span>
+                        <div class="news-type-share-btns">
+                            <div class="news-type">{{news.news_type}}</div>
+                            <div class="share-btns">
+                                <div class="fb-share-button" data-href="{% url 'news_detail' news.news_type news.id %}"
+                                    data-layout="button_count" data-size="small">
+                                    <a target="_blank"
+                                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                        class="fb-xfbml-parse-ignore">Share</a>
+                                </div>
+                                <div class="twitter-share-btn" style="margin-top: 4px;">
+                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                                        data-url="{% url 'news_detail' news.news_type news.id %}" data-show-count="true"
+                                        data-size="small">Tweet</a>
+                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                         <p class="news-bdy">{{news.description|truncatechars:100}}</p>
                         <p class="editor-date"><span class="news-editor">{{news.editor}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
@@ -186,7 +203,7 @@
                 </div>
                 <p class="developed-by">
                     <span class="title">Developed By : </span>
-                    <span class="developer-name">Changa Group</span>
+                    <span class="developer-name">Changaa Group</span>
                 </p>
                 <p class="email-bx">
                     <span class="title">Email : </span>
@@ -213,15 +230,14 @@
                 </p>
 
             </div>
+            <p class="copyright">&copy; Sahayogi Samuha Pvt. Ltd. <span class="year"></span>All rights
+                reserved.</span>
+                <span class="site-by">Site-By: <a href="http://changaa.ml">ChangaaGroup</a>
+            </p>
         </div>
-        <p class="copyright">&copy; Sahayogi Samuha Pvt. Ltd. <span class="year"></span>All rights
-            reserved.</span>
-            <span class="site-by">Site-By: <a href="http://changaa.ml">ChangaaGroup</a>
-        </p>
-    </div>
-    <div class="scroll-to-top scroll-to-top-hidden">
-        <i class="fas fa-long-arrow-alt-up"></i>
-    </div>
+        <div class="scroll-to-top scroll-to-top-hidden">
+            <i class="fas fa-long-arrow-alt-up"></i>
+        </div>
     </div>
     <!-- owl carousel  -->
     <!-- jquery cdn  -->
