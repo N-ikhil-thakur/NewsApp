@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}{{news.title}}{% endblock%}
 {% block meta %}
+<<<<<<< HEAD
 <meta property="og:url" content="https://www.your-domain.com{% url 'news_detail' news.news_type.title_eng news.id%}" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{news.title}}" />
@@ -15,6 +16,13 @@
 {% endblock %}
 {% block favicon %}
 <link rel="shortcut icon" href="{{news.display_picture.url}}" type="image/x-icon">
+=======
+<meta property="og:url" content="https://sahayogi.herokuapp.com/समाचार/{{news.news_type}}/{{news.id}}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sahayogi:Digital Newspaper Nepal" />
+<meta property="og:description" content="{{news.title}}" />
+<meta property="og:image" content="https://sahayogi.herokuapp.com/images/{{news.display_picture}}" />
+>>>>>>> 85bcace... .
 {% endblock %}
 {% block main_css%}
 <link rel="stylesheet" href="{% static 'css/news_detail_main.css'%}">
@@ -44,7 +52,12 @@
             <span class="pub-date">Published:<span class="date">{{news.pub_date}}</span></span>
         </p>
         <div class="share-btns">
+<<<<<<< HEAD
             <div class="fb-share-button" data-href="https://domainname{% url 'news_detail' news.news_type news.id %}"
+=======
+            <div class="fb-share-button"
+                data-href="https://sahayogi.herokuappp.com/समाचार/{{news.news_type}}/{{news.id}}"
+>>>>>>> 85bcace... .
                 data-layout="button_count" data-size="large">
                 <a target="_blank"
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -52,8 +65,13 @@
             </div>
             <div class="twitter-share-btn" style="margin-top: 6px;">
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+<<<<<<< HEAD
                     data-url="https://domainname{% url 'news_detail' news.news_type news.id %}" data-show-count="true"
                     data-size="large">Tweet</a>
+=======
+                    data-url="https://sahayogi.herokuappp.com/समाचार/{{news.news_type}}/{{news.id}}"
+                    data-show-count="true" data-size="large">Tweet</a>
+>>>>>>> 85bcace... .
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
