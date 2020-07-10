@@ -19,11 +19,11 @@
         integrity="sha384-heKROmDHlJdBb+n64p+i+wLplNYUZPaZmp2HZ4J6KCqzmd33FJ8QClrOV3IdHZm5" crossorigin="anonymous">
     </script>
     <!-- bootstrap  -->
-
+    {% block owl1%}
     <!-- owl carousel  -->
     <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css'%}">
     <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css'%}">
-
+    {% endblock %}
 </head>
 
 <body>
@@ -242,8 +242,9 @@
     </div>
     <!-- owl carousel  -->
     <!-- jquery cdn  -->
+    {% block owl2%}
     <script src="{% static 'js/OwlCarousel2-2.3.4/docs_src/assets/vendors/jquery.min.js'%}"></script>
-    <script src="{% static 'js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js'%}"></script>{% endblock %}
     <!-- ------------------ -->
     <script src="{% static 'js/home.js'%}"></script>
     <script>

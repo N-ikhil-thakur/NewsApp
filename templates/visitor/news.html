@@ -4,6 +4,7 @@
 {% block main_css%}
 <link rel="stylesheet" href="{% static 'css/news_main.css'%}">
 {% endblock%}
+{% block owl1%} {% endblock %}
 {% block language_url%}{% url 'news_eng' newstype=page_type.title_eng %}{% endblock%}
 {% block main%}
 <div class="news-grid-bx">
@@ -89,3 +90,4 @@
 {% endif %}
 
 {% endblock main %}
+{% block owl2%} {% endblock %}

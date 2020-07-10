@@ -4,13 +4,15 @@
 {% block meta %}
 <meta property="og:url" content="https://sahayogi.herokuapp.com/news/{{news.news_type.title_eng}}/{{news.id}}" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Sahayogi:Digital Newspaper Nepal" />
+<meta property="og:title" content="{{news.title}}" />
 <meta property="og:description" content="{{news.body|truncatechars:300}}" />
 <meta property="og:image" content="https://www.your-domain.com{{news.display_picture.url}}" />
+<meta name="twitter:card" content="summary_large_image">
 {% endblock %}
 {% block main_css%}
 <link rel="stylesheet" href="{% static 'css/news_detail_main.css'%}">
 {% endblock%}
+{% block owl1 %} {% endblock %}
 {% block language_url %} {% url  'news_detail' news.news_type news.id %} {% endblock %}
 {% block main %}
 <div class="container">
@@ -52,3 +54,5 @@
 </div>
 <div class="divider"></div>
 {% endblock main%}
+
+{% block owl2%} {% endblock %}
