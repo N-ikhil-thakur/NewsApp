@@ -26,14 +26,15 @@
 {% block main %}
 <div class="container">
     <div class="current-news">
-
-        <figure>
-            {% if news.display_picture %}
-            <a href="{{news.display_picture.url}}"><img src="{{news.display_picture.url}}" alt=""></a>
-            {% else %}
-            <a href="{{news.display_picture.url}}"><img src="{% static 'images/image_placeholder.png' %}"></a>
-            {% endif %}
-        </figure>
+        <a href="{{news.display_picture.url}}">
+            <figure>
+                {% if news.display_picture %}
+                <img src="{{news.display_picture.url}}" alt="">
+                {% else %}
+                <img src="{% static 'images/image_placeholder.png' %}">
+                {% endif %}
+            </figure>
+        </a>
         <h1 class="news-title">{{news.title}}</h1>
         <div class="divider"></div>
         <div class="news-body">
