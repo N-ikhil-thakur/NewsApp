@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{news.title_eng}}{% endblock%}
 {% block meta %}
-<meta property="og:url" content="https://sahayogi.herokuapp.com/news/{{news.news_type.title_eng}}/{{news.id}}" />
+<meta property="og:url" content="https://sahayogi.herokuapp.com/en/news/{{news.news_type.title_eng}}/{{news.id}}" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{news.title}}" />
 <meta property="og:description" content="{{news.body|truncatechars:300}}" />
