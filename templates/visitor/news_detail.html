@@ -7,7 +7,10 @@
 <meta property="og:title" content="{{news.title}}" />
 <meta property="og:description" content="{{news.body|truncatechars:300}}" />
 <meta property="og:image" content="https://sahayogi.herokuapp.com{{news.display_picture.url}}" />
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="player">
+{% endblock %}
+{% block favicon %}
+<link rel="shortcut icon" href="{{news.display_picture.url}}" type="image/x-icon">
 {% endblock %}
 {% block main_css%}
 <link rel="stylesheet" href="{% static 'css/news_detail_main.css'%}">
