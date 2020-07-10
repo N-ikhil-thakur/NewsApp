@@ -81,7 +81,6 @@ def news_detail_page(request, newstype, id):
     newses = NewsType.objects.get(title=newstype)
     news = newses.news.get(id=id)
     links = Links.objects.all()[0]
-    # newses_suggestions = newses.news.order_by('-pub_date')[:6]
     news_types = NewsType.objects.all()
     news_type = newses
     return render(request, 'visitor/news_detail.html', {"news_type": news_type, 'page_type': news_type, 'news': news, 'news_types': news_types,  'links': links})
@@ -91,8 +90,6 @@ def news_detail_page_eng(request, newstype, id):
     newses = NewsType.objects.get(title_eng=newstype)
     news = newses.news.get(id=id)
     links = Links.objects.all()[0]
-
-    # newses_suggestions = newses.news.order_by('-pub_date')[:6]
     news_types = NewsType.objects.all()
     news_type = newses
     return render(request, 'visitor/news_detail_eng.html', {"news_type": news_type, 'page_type': news_type, 'news': news, 'news_types': news_types, 'links': links})

@@ -5,7 +5,7 @@
 <meta property="og:url" content="https://sahayogi.herokuapp.com/news/{{news.news_type.title_eng}}/{{news.id}}" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Sahayogi:Digital Newspaper Nepal" />
-<meta property="og:description" content="{{news.body|truncate:300}}" />
+<meta property="og:description" content="{{news.body|truncatechars:300}}" />
 <meta property="og:image" content="https://www.your-domain.com/images/{{news.display_picture}}" />
 {% endblock %}
 {% block main_css%}
@@ -51,21 +51,4 @@
     </div>
 </div>
 <div class="divider"></div>
-<!-- <div class="suggestions">
-    {% for news in news_suggestions%}
-    <div class="news">
-        {% if news.display_picture %}
-        <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
-        {% else %}
-        <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
-        {% endif %}
-        <h2 class="news-hdng"><a
-                href="{% url 'news_detail_eng' news.news_type.title_eng news.id%}">{{news.title_eng}}</a></h2>
-        <span class="news-type">{{news.news_type.title_eng}}</span>
-        <p class="news-bdy">{{news.description_eng|truncatechars:100}}</p>
-        <p class="editor-date"><span class="news-editor">{{news.editor_eng}}</span><span
-                class="news-pub-date">{{news.pub_date}}</span></p>
-    </div>
-    {% endfor %}
-</div> -->
 {% endblock main%}
