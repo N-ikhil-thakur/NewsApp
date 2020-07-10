@@ -4,12 +4,13 @@
 {% block main_css%}
 <link rel="stylesheet" href="{% static 'css/news_main.css'%}">
 {% endblock%}
+{% block owlcss %} {% endblock %}
 {% block language_url%}{% url 'news_eng' newstype=page_type.title_eng %}{% endblock%}
 {% block main%}
 <div class="news-grid-bx">
     {% for news in newses %}
     <div class="news">
-        <a href="{% url 'news_detail' news.news_type news.id %}">
+        <a href="{% url 'news_detail' news.news_type.title_eng news.id %}">
             <figure>
                 {% if news.display_picture %}
                 <img class="news-image" src="{{news.display_picture.url}}" alt="Image">
@@ -18,7 +19,7 @@
                 {% endif %}
             </figure>
         </a>
-        <h2 class="news-title"><a href="{% url 'news_detail' news.news_type news.id%}">{{news.title}}</a></h2>
+        <h2 class="news-title"><a href="{% url 'news_detail' news.news_type.title_eng news.id%}">{{news.title}}</a></h2>
         <div class="news-type-share-btns">
             <div class="news-type">{{news.news_type}}</div>
             <div class="share-btns">
@@ -89,3 +90,5 @@
 {% endif %}
 
 {% endblock main %}
+{% block owljs %} {% endblock %}
+{% block script %} {% endblock script%}

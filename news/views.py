@@ -16,7 +16,7 @@ def homepage(request):
 
     news_types_with_news = {}
     for items in NewsType.objects.all():
-        news_types_with_news[items.title] = items.news.all().order_by(
+        news_types_with_news[items] = items.news.all().order_by(
             '-pub_date')[:5]
     return render(request, 'visitor/home.html', {
         'news_types': news_types,
@@ -29,7 +29,7 @@ def homepage_eng(request):
     links = Links.objects.all()[0]
     news_types_with_news = {}
     for items in NewsType.objects.all():
-        news_types_with_news[items.title_eng] = items.news.all().order_by(
+        news_types_with_news[items] = items.news.all().order_by(
             '-pub_date')[:5]
     return render(request, 'visitor/home_eng.html', {
         'news_types': news_types,
@@ -40,7 +40,7 @@ def homepage_eng(request):
 def newsPage(request, newstype):
     news_types = NewsType.objects.all()
     links = Links.objects.all()[0]
-    newstype = NewsType.objects.get(title=newstype)
+    newstype = NewsType.objects.get(title_eng=newstype)
     newses_list = News.objects.filter(news_type=newstype).order_by('-pub_date')
     page = request.GET.get('page', 1)
 
@@ -78,7 +78,7 @@ def newsPage_eng(request, newstype):
 
 
 def news_detail_page(request, newstype, id):
-    newses = NewsType.objects.get(title=newstype)
+    newses = NewsType.objects.get(title_eng=newstype)
     news = newses.news.get(id=id)
     links = Links.objects.all()[0]
     newses_suggestions = newses.news.order_by('-pub_date')[:6]

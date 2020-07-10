@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html prefix="og: http://ogp.me/ns#>
+<html lang=" en" prefix="og: http://ogp.me/ns#">
 
 <head>
     {% load static %}
@@ -19,11 +19,10 @@
         integrity="sha384-heKROmDHlJdBb+n64p+i+wLplNYUZPaZmp2HZ4J6KCqzmd33FJ8QClrOV3IdHZm5" crossorigin="anonymous">
     </script>
     <!-- bootstrap  -->
-
-    <!-- owl carousel  -->
+    {% block owlcss%}
     <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css'%}">
     <link rel="stylesheet" href="{% static 'js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css'%}">
-
+    {% endblock owlcss%}
 </head>
 
 <body>
@@ -71,7 +70,7 @@
                 </div>
                 {% for news_type in news_types %}
                 <div class="nbar-itms {{news_type.title_eng}}">
-                    <a class="nbar-itms-anchor" href="{% url 'news' newstype=news_type%}">{{news_type}}</a>
+                    <a class="nbar-itms-anchor" href="{% url 'news' newstype=news_type.title_eng %}">{{news_type}}</a>
                 </div>
                 {% endfor %}
 
@@ -82,22 +81,22 @@
             {% for news_type , values in news_types_with_news.items %}
             <div class="news-container {{news_type}}">
                 <div class="news-type-bx">
-                    <a href="{% url 'news' newstype=news_type%}"> {{news_type}}</a>
+                    <a href="{% url 'news' newstype=news_type.title_eng %}"> {{news_type}}</a>
                 </div>
                 <div class="news-bx owl-carousel owl-theme">
                     {% for news in values %}
                     <div class="news">
                         {% if news.display_picture %}
-                        <a href="{% url 'news_detail' news.news_type news.id %}">
+                        <a href="{% url 'news_detail' news.news_type.title_eng news.id %}">
                             <img src="{{news.display_picture.url}}" alt="" class="news-dspy-pic">
                         </a>
                         {% else %}
-                        <a href="{% url 'news_detail' news.news_type news.id %}">
+                        <a href="{% url 'news_detail' news.news_type.title_eng news.id %}">
                             <img src="{% static 'images/image_placeholder.png'%}" alt="" class="news-dspy-pic">
                         </a>
                         {% endif %}
                         <h2 class="news-hdng"><a
-                                href="{% url 'news_detail' news.news_type news.id %}">{{news.title}}</a></h2>
+                                href="{% url 'news_detail' news.news_type.title_eng news.id %}">{{news.title}}</a></h2>
                         <div class="news-type-share-btns">
                             <div class="news-type">{{news.news_type}}</div>
                             <div class="share-btns">
@@ -240,40 +239,21 @@
             <i class="fas fa-long-arrow-alt-up"></i>
         </div>
     </div>
-    <!-- owl carousel  -->
-    <!-- jquery cdn  -->
+
     <script src="{% static 'js/OwlCarousel2-2.3.4/docs_src/assets/vendors/jquery.min.js'%}"></script>
+
+    {% block owljs%}
     <script src="{% static 'js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js'%}"></script>
-    <!-- ------------------ -->
+    {% endblock owljs %}
+
     <script src="{% static 'js/home.js'%}"></script>
+
     <script>
         if ('{{page_type.title_eng}}' == '') {
             document.querySelector('.{{page_type}}').classList.add('selected');
         } else {
             document.querySelector('.{{page_type.title_eng}}').classList.add('selected');
         }
-
-        $(document).ready(function () {
-            $('.owl-carousel').owlCarousel({
-                loop: false,
-                margin: 20,
-                nav: false,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    690: {
-                        items: 2
-                    },
-                    1000: {
-                        items: 3
-                    },
-
-                }
-            })
-        });
-
         window.addEventListener('scroll', () => {
             let target = document.querySelector(".date-time-social-links")
             if (window.pageYOffset > target.offsetTop + target.scrollHeight) {
@@ -296,6 +276,31 @@
             });
         })
     </script>
+
+    {% block script %}
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: false,
+                margin: 20,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    690: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    },
+
+                }
+            })
+        });
+    </script>
+    {% endblock script %}
 </body>
 
 </html>
