@@ -4,8 +4,8 @@
 {% block meta %}
 <meta property="og:url" content="https://sahayogi.herokuapp.com/समाचार/{{news.news_type}}/{{news.id}}" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Sahayogi:Digital Newspaper Nepal" />
-<meta property="og:description" content="{{news.title}}" />
+<meta property="og:title" content="{{news.title}}" />
+<meta property="og:description" content="{{news.body:truncuate:300}}" />
 <meta property="og:image" content="https://sahayogi.herokuapp.com/images/{{news.display_picture}}" />
 {% endblock %}
 {% block main_css%}
@@ -36,7 +36,7 @@
         </p>
         <div class="share-btns">
             <div class="fb-share-button"
-                data-href="https://sahayogi.herokuappp.com/समाचार/{{news.news_type}}/{{news.id}}"
+                data-href="https://sahayogi.herokuappp.com{% url 'news_detail' news.news_type news.id%}"
                 data-layout="button_count" data-size="large">
                 <a target="_blank"
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -44,7 +44,7 @@
             </div>
             <div class="twitter-share-btn" style="margin-top: 6px;">
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                    data-url="https://sahayogi.herokuappp.com/समाचार/{{news.news_type}}/{{news.id}}"
+                    data-url="https://sahayogi.herokuappp.com{% url 'news_detail' news.news_type news.id%}"
                     data-show-count="true" data-size="large">Tweet</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
