@@ -9,9 +9,14 @@
 <meta name="description" content="{{news.description_eng|truncatechars:200}}" />
 <meta property="og:image:width" content="400" />
 <meta property="og:image:height" content="150" />
+{% if news.display_picture %}
 <meta property="og:image" content="sahayogii.tk/{{news.display_picture.url}}" />
-<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="sahayogii.tk{{news.display_picture.url}}">
+{% else%}
+<meta property="og:image" content="sahayogii.tk/static/images/image_placeholder.png" />
+<meta name="twitter:image" content="sahayogii.tk/static/images/image_placeholder.png">
+{% endif %}
+<meta name="twitter:card" content="summary_large_image">
 
 {% endblock %}
 {% block favicon %}
@@ -26,13 +31,12 @@
 <div class="container">
     <div class="current-news">
 
-        <figure>
-            {% if news.display_picture %}
-            <a href="{{news.display_picture.url}}"><img src="{{news.display_picture.url}}" alt=""></a>
-            {% else %}
-            <a href="{{news.display_picture.url}}"><img src="{% static 'images/image_placeholder.png' %}"></a>
-            {% endif %}
-        </figure>
+        {% if news.display_picture %}
+        <a href="{{news.display_picture.url}}"><img src="{{news.display_picture.url}}" alt=""></a>
+        {% else %}
+        <a href="{% static 'images/image_placeholder.png'%}"><img src="{% static 'images/image_placeholder.png' %}"></a>
+        {% endif %}
+
         <h1 class="news-title">{{news.title_eng}}</h1>
         <div class="divider"></div>
         <div class="news-body">

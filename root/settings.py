@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z+v1+7+z4sg@r62#nu3n+&+%g$^exwbq=v=j_i)!-9-)oh#ad9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['sahayogii.tk','www.shayogii.tk']
+ALLOWED_HOSTS = ['*']
 
-SECURE_SSL_REDIRECT = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'smartfields',
     'news.apps.NewsConfig',
 
     'django_cleanup.apps.CleanupConfig',
@@ -136,5 +137,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets')
 ]
 
-STATIC_ROOT = os.path.join('/home/public_html/static')
-MEDIA_ROOT = os.path.join('/home/public_html/media')
+STATIC_ROOT = os.path.join('staticfiles')
+MEDIA_ROOT = os.path.join('assets/images')

@@ -17,14 +17,16 @@
     padding: 10px;
 }
 
-.current-news figure {
+
+
+.current-news a {
     width: 100%;
-    height: auto;
+    display: inline-block;
 }
 
-.current-news figure img {
-    width: 100%;
-    height: 100%;
+.current-news a img {
+    width: 100% !important;
+    /* height: auto; */
 }
 
 .current-news .news-title {
