@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
-    path('editor/', admin.site.urls),
+    path('owner/', admin.site.urls),
     path('', include('news.urls'))
 ]
 

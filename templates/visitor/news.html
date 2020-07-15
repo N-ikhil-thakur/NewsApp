@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/news_main.css'%}">
 {% endblock%}
 {% block owlcss %} {% endblock %}
-{% block language_url%}{% url 'news_eng' newstype=page_type.title_eng %}{% endblock%}
+{% block language_url%}{% url 'news_eng' page_type.title_eng %}{% endblock%}
 {% block main%}
 <div class="news-grid-bx">
     {% for news in newses %}
@@ -23,7 +23,7 @@
         <div class="news-type-share-btns">
             <div class="news-type">{{news.news_type}}</div>
             <div class="share-btns">
-                <div class="fb-share-button" data-href="sahayogii.tk{% url 'news_detail' news.news_type_eng news.id %}"
+                <div class="fb-share-button" data-href="sahayogii.tk{% url 'news_detail' news.news_type news.id %}"
                     data-layout="button_count" data-size="small">
                     <a target="_blank"
                         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -31,8 +31,8 @@
                 </div>
                 <div class="twitter-share-btn" style="margin-top: 4px;">
                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                        data-url="sahayogii.tk{% url 'news_detail' news.news_type.title_eng news.id %}"
-                        data-show-count="true" data-size="small">Tweet</a>
+                        data-url="sahayogii.tk{% url 'news_detail' news.news_type news.id %}" data-show-count="true"
+                        data-size="small">Tweet</a>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </div>

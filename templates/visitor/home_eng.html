@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html prefix="og: http://ogp.me/ns#>
 <html lang=" en" prefix="og: http://ogp.me/ns#">
 
 <head>
@@ -35,8 +35,10 @@
         <div class="hdr">
             <div class="logo">
                 <a href="{% url 'homepage_eng' %}">
-                    <abbr title="Sahayogi:Digital Newspaper Nepal"><img src="{% static 'images/logo_eng.png'%}"
-                            height="auto" width="450px" alt=""></abbr>
+                    <figure>
+                        <abbr title="Sahayogi:Digital Newspaper Nepal"><img src="{% static 'images/logo_eng.png'%}"
+                                height="auto" width="450px" alt=""></abbr>
+                    </figure>
                 </a>
             </div>
             <div class="date-time-social-links">
@@ -254,6 +256,7 @@
             if (window.pageYOffset > target.offsetTop + target.scrollHeight) {
                 document.querySelector('.nbr-bx').classList.add('nbr-bx-floating');
             } else {
+                console.log("hi")
                 document.querySelector('.nbr-bx').classList.remove('nbr-bx-floating');
             }
             if (window.pageYOffset > 1200) {

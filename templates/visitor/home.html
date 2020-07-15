@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html prefix="og: http://ogp.me/ns#>
 <html lang=" en" prefix="og: http://ogp.me/ns#">
 
 <head>
@@ -35,8 +35,10 @@
         <div class="hdr">
             <div class="logo">
                 <a href="{% url 'homepage' %}">
-                    <abbr title="Sahayogi:Digital Newspaper Nepal"><img src="{% static 'images/logo.png'%}"
-                            height="auto" width="450px" alt=""></abbr>
+                    <figure>
+                        <abbr title="Sahayogi:Digital Newspaper Nepal"><img src="{% static 'images/logo.png'%}"
+                                height="auto" width="450px" alt=""></abbr>
+                    </figure>
                 </a>
             </div>
             <div class="date-time-social-links">
@@ -99,7 +101,7 @@
                             <div class="news-type">{{news.news_type}}</div>
                             <div class="share-btns">
                                 <div class="fb-share-button"
-                                    data-href="sahayogii.tk{% url 'news_detail' news.news_type.title_eng news.id %}"
+                                    data-href="sahayogii.tk{% url 'news_detail' news.news_type news.id %}"
                                     data-layout="button_count" data-size="small">
                                     <a target="_blank"
                                         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -107,7 +109,7 @@
                                 </div>
                                 <div class="twitter-share-btn" style="margin-top: 4px;">
                                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                                        data-url="sahayogii.tk{% url 'news_detail' news.news_type.title_eng news.id %}"
+                                        data-url="sahayogii.tk{% url 'news_detail' news.news_type news.id %}"
                                         data-show-count="true" data-size="small">Tweet</a>
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
                                     </script>
@@ -257,6 +259,7 @@
             if (window.pageYOffset > target.offsetTop + target.scrollHeight) {
                 document.querySelector('.nbr-bx').classList.add('nbr-bx-floating');
             } else {
+                console.log("hi")
                 document.querySelector('.nbr-bx').classList.remove('nbr-bx-floating');
             }
             if (window.pageYOffset > 1200) {

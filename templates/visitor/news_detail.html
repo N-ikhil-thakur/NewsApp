@@ -25,15 +25,14 @@
 {% block main %}
 <div class="container">
     <div class="current-news">
-        <a href="{{news.display_picture.url}}">
-            <figure>
-                {% if news.display_picture %}
-                <img src="{{news.display_picture.url}}" alt="">
-                {% else %}
-                <img src="{% static 'images/image_placeholder.png' %}">
-                {% endif %}
-            </figure>
-        </a>
+
+        <figure>
+            {% if news.display_picture %}
+            <a href="{{news.display_picture.url}}"><img src="{{news.display_picture.url}}" alt=""></a>
+            {% else %}
+            <a href="{{news.display_picture.url}}"><img src="{% static 'images/image_placeholder.png' %}"></a>
+            {% endif %}
+        </figure>
         <h1 class="news-title">{{news.title}}</h1>
         <div class="divider"></div>
         <div class="news-body">
@@ -45,8 +44,7 @@
             <span class="pub-date">Published:<span class="date">{{news.pub_date}}</span></span>
         </p>
         <div class="share-btns">
-            <div class="fb-share-button"
-                data-href="sahayogii.tk{% url 'news_detail' news.news_type.title_eng news.id %}" class="fb-share-button"
+            <div class="fb-share-button" data-href="sahayogii.tk{% url 'news_detail' news.news_type news.id %}"
                 data-layout="button_count" data-size="large">
                 <a target="_blank"
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -54,8 +52,8 @@
             </div>
             <div class="twitter-share-btn" style="margin-top: 6px;">
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                    data-url="sahayogii.tk{% url 'news_detail' news.news_type.title_eng news.id %}"
-                    data-show-count="true" data-size="large">Tweet</a>
+                    data-url="sahayogii.tk{% url 'news_detail' news.news_type news.id %}" data-show-count="true"
+                    data-size="large">Tweet</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
