@@ -51,6 +51,9 @@ class News(models.Model):
         max_length=100, default="Sahayogi News", verbose_name='Editor')
     pub_date = models.DateTimeField(default=datetime.datetime.now())
 
+    class Meta:
+        verbose_name_plural = ("All Newses")
+
     def save(self, *args, **kwargs):
             if self.display_picture:
                 new_image = compress(self.display_picture)
@@ -61,7 +64,7 @@ class News(models.Model):
 
 
     def __str__(self):
-        return f'{self.title} | {self.title_eng}'
+        return f'{self.title} ====> {self.title_eng}'
     
 
 

@@ -7,5 +7,6 @@ function updateDateTime() {
       ".time"
     ).textContent = `${new Date().toLocaleTimeString()}`;
   }, 1000);
+  document.querySelector(".copy_year").innerHTML = new Date().getFullYear();
 }
 updateDateTime();
