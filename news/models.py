@@ -69,17 +69,46 @@ class News(models.Model):
 
 
 
-class Links(models.Model):
-    title = "Social Media Links"
+class WebsiteInfo(models.Model):
+    title = "Website_info"
+    organization_name = models.CharField(max_length=150,default="")
+    organization_address = models.CharField(max_length=200,default="")
+    darta_no = models.CharField(max_length=100 , null=True,blank=True)
+    email = models.EmailField(default="")
+    contact = models.CharField(max_length=100 , default="")
+    website = models.URLField()
     youtube = models.URLField()
     instagram = models.URLField()
     facebook = models.URLField()
     twitter = models.URLField()
 
+
     def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
-        if not self.pk and Links.objects.exists():
+        if not self.pk and WebsiteInfo.objects.exists():
             return
-        return super(Links, self).save(*args, **kwargs)
+        return super(WebsiteInfo, self).save(*args, **kwargs)
+
+
+class DevelopersInfo(models.Model):
+    title = "Developers_info"
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    contact = models.CharField(max_length=100)
+    website = models.URLField()
+    linkedin = models.URLField()
+    instagram = models.URLField()
+    facebook = models.URLField()
+    twitter = models.URLField()
+    notice = models.TextField(blank=True,null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.pk and DevelopersInfo.objects.exists():
+            return
+        return super(DevelopersInfo, self).save(*args, **kwargs)
+    
+    def __str__(self):
+        return self.name
+    

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import NewsType, News, Links
+from .models import NewsType, News, WebsiteInfo , DevelopersInfo
 # Register your models here.
 
 from django.urls import reverse
@@ -9,7 +9,7 @@ from django.shortcuts import redirect
 class NewsAdmin(admin.ModelAdmin):
     model = News
     ordering= ("-pub_date",)
-    search_fields = ("title" , "title_eng" , "pub_date",)
+    search_fields = ("title" , "title_eng" , "pub_date", "id" , "display_picture" ,)
     
 
 class NewsInline(admin.StackedInline):
@@ -27,5 +27,6 @@ class NewsTypeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(NewsType, NewsTypeAdmin)
-admin.site.register(Links)
+admin.site.register(WebsiteInfo)
 admin.site.register(News , NewsAdmin)
+admin.site.register(DevelopersInfo)

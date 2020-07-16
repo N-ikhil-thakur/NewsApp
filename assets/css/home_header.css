@@ -9,7 +9,6 @@
 
 ::-webkit-scrollbar {
     height: 5px;
-
 }
 
 ::-webkit-scrollbar-track {
@@ -491,7 +490,11 @@ abbr[title] {
     }
 
     .nbr-bx .nbar-itms {
-        width: 35%;
+        width: 38%;
+    }
+
+    .nbr-bx .nbar-itms a {
+        font-size: 18px;
     }
 
     *::-webkit-scrollbar {
@@ -517,7 +520,7 @@ abbr[title] {
     }
 
     .nbr-bx .nbar-itms {
-        width: 35%;
+        width: 28%;
     }
 }
 
@@ -525,7 +528,7 @@ abbr[title] {
 
 
     .nbr-bx .nbar-itms {
-        width: 25%;
+        width: 22%;
     }
 }
 
@@ -535,7 +538,7 @@ abbr[title] {
     }
 
     .nbr-bx .nbar-itms {
-        width: 20%;
+        width: 18%;
     }
 
     .ftr div {

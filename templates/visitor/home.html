@@ -1,4 +1,4 @@
-<!DOCTYPE html prefix="og: http://ogp.me/ns#>
+<!DOCTYPE html prefix="og: http://ogp.me/ns#">
 <html lang=" en" prefix="og: http://ogp.me/ns#">
 
 <head>
@@ -101,7 +101,7 @@
                             <div class="news-type">{{news.news_type}}</div>
                             <div class="share-btns">
                                 <div class="fb-share-button"
-                                    data-href="sahayogii.tk{% url 'news_detail' news.news_type news.id %}"
+                                    data-href="{{request.get_host}}{% url 'news_detail' news.news_type.title_eng news.id %}"
                                     data-layout="button_count" data-size="small">
                                     <a target="_blank"
                                         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="twitter-share-btn">
                                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                                        data-url="sahayogii.tk{% url 'news_detail' news.news_type news.id %}"
+                                        data-url="{{request.get_host}}{% url 'news_detail' news.news_type.title_eng news.id %}"
                                         data-show-count="true" data-size="small">Tweet</a>
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
                                     </script>
@@ -146,22 +146,22 @@
                 <a href="{% url 'homepage' %}"><img src="{% static 'images/logo.png'%}" height="auto" width="350px"></a>
                 <div class="contact-info">
                     <h4 class="org-name">
-                        सहयोगी समूह प्रा . लि
+                        {{website_info.organization_name}}
                     </h4>
                     <p class="darta-no">
-                        सूचना विभाग दर्ता नंः Unknown
+                        सूचना विभाग दर्ता नंः {{website_info.darta_no}}
                     </p>
                     <p class="address">
-                        सहयोगी समूह प्रा . लि चन्द्रपुर , रौतहट , नेपाल
+                        {{website_info.organization_name}} {{website_info.organization_address}}
                     </p>
                     <p class="email">
-                        Email:sahayogisamuha@gmail.com
+                        Email:{{website_info.email}}
                     </p>
                     <p class="phone">
-                        Phone:+977-9812345678 , +977-9876543210
+                        Phone : {{website_info.contact}}
                     </p>
                     <p class="website">
-                        Web : <a href="{% url 'homepage'%}">sahayogi.com.np</a>
+                        Web : <a href="{% url 'homepage'%}">{{website_info.website}}</a>
                     </p>
 
                 </div>
@@ -177,19 +177,20 @@
                 </div>
                 <p class="facebook-link">
                     <span class="logo facebook"><i class="fab fa-facebook"></i></span>
-                    <span class="description"><a href="{{links.facebook}}">Like us on facebook</a></span>
+                    <span class="description"><a href="{{website_info.facebook}}">Like us on facebook</a></span>
                 </p>
                 <p class="twitter-link">
                     <span class="logo twitter"><i class="fab fa-twitter"></i></span>
-                    <span class="description"><a href="{{links.twitter}}">Follow us on twitter</a></span>
+                    <span class="description"><a href="{{website_info.twitter}}">Follow us on twitter</a></span>
                 </p>
                 <p class="instagram-link">
                     <span class="logo instagram"><i class="fab fa-instagram "></i></span>
-                    <span class="description"><a href="{{links.instagram}}">Follow us on instagram</a></span>
+                    <span class="description"><a href="{{website_info.instagram}}">Follow us on instagram</a></span>
                 </p>
                 <p class="youtube-link">
                     <span class="logo youtube"><i class="fab fa-youtube "></i></span>
-                    <span class="description"><a href="{{links.youtube}}">Subscribe our youtube channel</a></span>
+                    <span class="description"><a href="{{website_info.youtube}}">Subscribe our youtube
+                            channel</a></span>
                 </p>
 
             </div>
@@ -203,36 +204,40 @@
                 </div>
                 <p class="developed-by">
                     <span class="title">Developed By : </span>
-                    <span class="developer-name">Changaa Group</span>
+                    <span class="developer-name">{{developers_info.name}}</span>
                 </p>
                 <p class="email-bx">
                     <span class="title">Email : </span>
-                    <span class="email">groupchangaa@gmail.com</span>
+                    <span class="email">{{developers_info.email}}</span>
                 </p>
                 <p class="contact-info">
                     <span class="title">Contact : </span>
-                    <span class="contact"> <strong>+977-9844547919</strong> ,<strong>
-                            +977-9865719240</strong></span>
+                    <span class="contact"> <strong>{{developers_info.contact}}</strong></span>
                 </p>
                 <p class="website-bx">
                     <span class="title">Web :</span>
-                    <span class="website"><a href="http://changaa.ml" target="_blank">www.changaa.ml</a></span>
+                    <span class="website"><a href="{{developers_info.website}}" target="_blank">{{developers_info.name}}
+                            website</a></span>
+                </p>
+                <p class="notice-bx">
+                    {{developers_info.notice}}
                 </p>
                 <div class="seperator"></div>
                 <div class="breaker">
                     Social Media Links
                 </div>
                 <p class="links">
-                    <a href="https://facebook.com" class="facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://linkedin.com" class="linkedin"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com" class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="{{developers_info.facebook}}" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="{{developers_info.linkedin}}" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="{{developers_info.twitter}}" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="{{developers_info.instagram}}" class="instagram"><i class="fab fa-instagram"></i></a>
                 </p>
 
             </div>
-            <p class="copyright">&copy; Sahayogi Samuha Pvt. Ltd. <span class="copy_year"></span> All rights
+            <p class="copyright">&copy; {{website_info.organization_name}} <span class="copy_year"></span> All rights
                 reserved.</span>
-                <span class="site-by">Site-By: <a href="http://changaa.ml">ChangaaGroup</a>
+                <span class="site-by">Site-By: <a target="_blank"
+                        href="{{developers_info.website}}">{{developers_info.name}}</a>
             </p>
         </div>
         <div class="scroll-to-top scroll-to-top-hidden">

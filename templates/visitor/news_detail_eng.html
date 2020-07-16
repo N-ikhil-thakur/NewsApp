@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{news.title_eng}}{% endblock%}
 {% block meta %}
-<meta property="og:url" content="sahayogii.tk{% url 'news_detail_eng' news.news_type.title_eng  news.id %}" />
+<meta property="og:url" content="{{request.get_host}}{% url 'news_detail_eng' news.news_type.title_eng  news.id %}" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{news.title}}" />
 <meta property="og:description" content="{{news.description_eng|truncatechars:200}}" />
@@ -10,11 +10,11 @@
 <meta property="og:image:width" content="400" />
 <meta property="og:image:height" content="150" />
 {% if news.display_picture %}
-<meta property="og:image" content="sahayogii.tk/{{news.display_picture.url}}" />
-<meta name="twitter:image" content="sahayogii.tk{{news.display_picture.url}}">
+<meta property="og:image" content="{{request.get_host}}/{{news.display_picture.url}}" />
+<meta name="twitter:image" content="{{request.get_host}}{{news.display_picture.url}}">
 {% else%}
-<meta property="og:image" content="sahayogii.tk/static/images/image_placehol    der.png" />
-<meta name="twitter:image" content="sahayogii.tk/static/images/image_placeholder.png">
+<meta property="og:image" content="{{request.get_host}}/static/images/image_placehol    der.png" />
+<meta name="twitter:image" content="{{request.get_host}}/static/images/image_placeholder.png">
 {% endif %}
 <meta name="twitter:card" content="summary_large_image">
 
@@ -49,7 +49,7 @@
         </p>
         <div class="share-btns">
             <div class="fb-share-button"
-                data-href="sahayogii.tk{% url 'news_detail_eng' news.news_type.title_eng news.id %}"
+                data-href="{{request.get_host}}{% url 'news_detail_eng' news.news_type.title_eng news.id %}"
                 data-layout="button_count" data-size="large">
                 <a target="_blank"
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -57,7 +57,7 @@
             </div>
             <div class="twitter-share-btn">
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                    data-url="sahayogii.tk{% url 'news_detail_eng' news.news_type.title_eng news.id %}"
+                    data-url="{{request.get_host}}{% url 'news_detail_eng' news.news_type.title_eng news.id %}"
                     data-show-count="true" data-size="large">Tweet</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
