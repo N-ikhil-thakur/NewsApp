@@ -17,13 +17,15 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(184, 180, 180);
+    background: rgb(95, 95, 95);
     cursor: pointer;
     border-radius: 50px;
+    transition: all 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(216, 151, 151);
+    background: rgb(236, 96, 96);
+    cursor: pointer;
 }
 
 :root,
@@ -95,6 +97,7 @@ abbr[title] {
     display: flex;
     padding: 7px 5px;
     flex-direction: row;
+    justify-content: space-between;
     font-size: 18px;
     font-weight: bold;
     color: teal;
@@ -103,7 +106,7 @@ abbr[title] {
 
 .date-time {
     width: auto;
-    margin: auto;
+    margin: 0;
 }
 
 .date-bx {
@@ -124,7 +127,6 @@ abbr[title] {
 .social-link {
     text-align: right;
     width: auto;
-    margin: auto;
 }
 
 .social-link a {
@@ -139,7 +141,7 @@ abbr[title] {
     /* background: teal; */
     color: teal;
     border-radius: 5px;
-    padding: 3px 7px;
+    padding: 3px 3px;
 }
 
 .social-link .language-changer:hover {
@@ -486,7 +488,15 @@ abbr[title] {
     }
 
     .date-time-social-links {
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+    .date-time {
+        width: 55% !important;
+    }
+
+    .social-link {
+        width: 45% !important;
     }
 
     .nbr-bx .nbar-itms {
@@ -508,6 +518,7 @@ abbr[title] {
     .copyright {
         font-size: 13px;
     }
+
 }
 
 @media only screen and (min-width: 680px) {
@@ -522,6 +533,8 @@ abbr[title] {
     .nbr-bx .nbar-itms {
         width: 28%;
     }
+
+
 }
 
 @media only screen and (min-width: 768px) {
