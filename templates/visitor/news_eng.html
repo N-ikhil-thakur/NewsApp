@@ -1,6 +1,6 @@
 {% extends 'visitor/home_eng.html'%}
 {% load static %}
-{% block title %}{{page_type.title_eng}}{% endblock title%}
+{% block title %}{{website_info.organization_name}} | {{page_type.title_eng}}{% endblock title%}
 {% block main_css%}
 <link rel="stylesheet" href="{% static 'css/news_main.css'%}">
 {% endblock%}
