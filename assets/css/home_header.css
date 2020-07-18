@@ -160,7 +160,7 @@ abbr[title] {
     display: flex;
     flex-flow: column wrap;
     overflow-x: auto;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     height: 50px;
     font-family: 'Roboto Condensed', sans-serif;
     transition: all 0.2s ease;

@@ -73,7 +73,7 @@
                     <a class="nbar-items-anchor" href="{% url 'homepage' %}">गृहपृष्ट</a>
                 </div>
                 {% for news_type in news_types %}
-                <div class="nbar-itms" data-id="{{news_type.id}}">
+                <div class="nbar-itms" data-id="{{news_type.id}}" data-num={{forloop.counter}}>
                     <a class="nbar-itms-anchor" href="{% url 'news' newstype=news_type.title_eng %}">{{news_type}}</a>
                 </div>
                 {% endfor %}
@@ -259,20 +259,22 @@
     <script src="{% static 'js/OwlCarousel2-2.3.4/dist/owl.carousel.min.js'%}"></script>
     {% endblock owljs %}
 
-    <script src="{% static 'js/home.js'%}"></script>
-
     <script>
         if ('{{page_type.title_eng}}' == '') {
             document.querySelector('.{{page_type}}').classList.add('selected');
         } else {
             document.querySelector('div[data-id="{{page_type.id}}"]').classList.add('selected');
         }
+    </script>
+
+    <script src="{% static 'js/home.js'%}"></script>
+    
+    <script>
         window.addEventListener('scroll', () => {
             let target = document.querySelector(".date-time-social-links")
             if (window.pageYOffset > target.offsetTop + target.scrollHeight) {
                 document.querySelector('.nbr-bx').classList.add('nbr-bx-floating');
             } else {
-                console.log("hi")
                 document.querySelector('.nbr-bx').classList.remove('nbr-bx-floating');
             }
             if (window.pageYOffset > 1200) {
@@ -292,6 +294,7 @@
 
     {% block script %}
     <script>
+    
         $(document).ready(function () {
             $('.owl-carousel').owlCarousel({
                 loop: false,
