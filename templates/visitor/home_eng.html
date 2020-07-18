@@ -2,6 +2,7 @@
 <html lang=" en" prefix="og: http://ogp.me/ns#">
 
 <head>
+
     {% load static %}
     <meta charset=" UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,7 +73,7 @@
                     <a class="nbar-itms-anchor" href="{% url 'homepage_eng' %}">HomePage</a>
                 </div>
                 {% for news_type in news_types %}
-                <div class="nbar-itms {{news_type.title_eng}}">
+                <div class="nbar-itms " data-id="{{news_type.id}}">
                     <a class="nbar-itms-anchor"
                         href="{% url 'news_eng' newstype=news_type.title_eng%}">{{news_type.title_eng}}</a>
                 </div>
@@ -262,7 +263,7 @@
         if ('{{page_type.title_eng}}' == "") {
             document.querySelector('.{{page_type}}').classList.add('selected');
         } else {
-            document.querySelector('.{{page_type.title_eng}}').classList.add('selected');
+            document.querySelector('div[data-id="{{page_type.id}}"]').classList.add('selected');
         }
 
         window.addEventListener('scroll', () => {

@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z+v1+7+z4sg@r62#nu3n+&+%g$^exwbq=v=j_i)!-9-)oh#ad9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['saumyaasanchar.tk' , 'www.saumyaasanchar.tk']
+# ALLOWED_HOSTS = ['saumyaasanchar.tk' , 'www.saumyaasanchar.tk']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -136,5 +137,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets')
 ]
 
-STATIC_ROOT = '/home/saumyaas/public_html/static'
-MEDIA_ROOT = '/home/saumyaas/public_html/media'
+# STATIC_ROOT = 'assets'
+MEDIA_ROOT = 'assets/images'

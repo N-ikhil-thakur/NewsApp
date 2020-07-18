@@ -61,7 +61,7 @@ def newsPage(request, newstype):
     if  DevelopersInfo.objects.all().exists():
         developersInfo = DevelopersInfo.objects.all()[0]
   
-    newstype = NewsType.objects.get(title_eng=newstype)
+    newstype = NewsType.objects.get(title_eng=str(newstype).replace("%20" , " "))
     newses_list = News.objects.filter(news_type=newstype).order_by('-pub_date')
     
     page = request.GET.get('page', 1)
@@ -92,7 +92,7 @@ def newsPage_eng(request, newstype):
     if  DevelopersInfo.objects.all().exists():
         developersInfo = DevelopersInfo.objects.all()[0]
     
-    newstype = NewsType.objects.get(title_eng=newstype)
+    newstype = NewsType.objects.get(title_eng=str(newstype).replace("%20" , " "))
     newses_list = News.objects.filter(news_type=newstype).order_by('-pub_date')
     
     page = request.GET.get('page', 1)
@@ -116,7 +116,7 @@ def newsPage_eng(request, newstype):
 
 
 def news_detail_page(request, newstype, id):
-    newses = NewsType.objects.get(title_eng=newstype)
+    newses = NewsType.objects.get(title_eng=str(newstype).replace("%20" , " "))
     news = newses.news.get(id=id)
     websiteInfo = ""
     developersInfo = ""
@@ -138,7 +138,7 @@ def news_detail_page(request, newstype, id):
 
 
 def news_detail_page_eng(request, newstype, id):
-    newses = NewsType.objects.get(title_eng=newstype)
+    newses = NewsType.objects.get(title_eng=str(newstype).replace("%20" , " "))
     news = newses.news.get(id=id)
     websiteInfo = ""
     developersInfo = ""
