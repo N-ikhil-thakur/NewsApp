@@ -5,11 +5,11 @@
 <meta property="og:url"
     content="{{request.scheme}}://{{request.get_host}}{% url 'news_detail_eng' news.news_type.title_eng  news.id %}" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="{{news.title_eng}}" />
-<meta property="og:description" content="{{news.description_eng|truncatechars:200}}" />
+<meta property="og:title" name="twitter:title" content="{{news.title_eng}}" />
+<meta property="og:description" name="twitter:description" content="{{news.description_eng|truncatechars:200}}" />
 <meta name="description" content="{{news.description_eng|truncatechars:200}}" />
 <meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="650" />
+<meta property="og:image:height" content="630" />
 {% if news.display_picture %}
 <meta property="og:image" content="{{request.scheme}}://{{request.get_host}}{{news.display_picture.url}}" />
 <meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}{{news.display_picture.url}}" />
@@ -18,6 +18,8 @@
 <meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}/static/images/image_placeholder.png">
 {% endif %}
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="{{website_info.organization_name}}">
+
 
 {% endblock %}
 {% block favicon %}
