@@ -9,6 +9,10 @@
     {% block meta %}
     <meta name="description"
         content="Saumya Sanchar is a minified digital newspaper . It contains of few daily newses regarding various affairs.">
+    <meta property="og:image" content="{{request.scheme}}://{{request.get_host}}/static/images/logo.png" />
+    <meta name="twitter:image" content="{{request.scheme}}://{{request.get_host}}/static/images/logo.png">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="650" />
     {% endblock meta %}
     <title>{% block title %}{{website_info.organization_name}}:Digital Newspaper Nepal{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/home_header.css' %}">
@@ -31,6 +35,7 @@
 
 <body>
     <!-- facebook share plugin  -->
+
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"
         nonce="9MhxJ60M"></script>
@@ -105,7 +110,7 @@
                             <div class="news-type">{{news.news_type}}</div>
                             <div class="share-btns">
                                 <div class="fb-share-button"
-                                    data-href="http://{{request.get_host}}{% url 'news_detail' news.news_type.title_eng news.id %}"
+                                    data-href="{{request.scheme}}://{{request.get_host}}{% url 'news_detail' news.news_type.title_eng news.id %}"
                                     data-layout="button_count" data-size="small">
                                     <a target="_blank"
                                         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
@@ -113,7 +118,7 @@
                                 </div>
                                 <div class="twitter-share-btn" style="margin-top: 4px;">
                                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-                                        data-url="http://{{request.get_host}}{% url 'news_detail' news.news_type.title_eng news.id %}"
+                                        data-url="{{request.scheme}}://{{request.get_host}}{% url 'news_detail' news.news_type.title_eng news.id %}"
                                         data-show-count="true" data-size="small">Tweet</a>
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
                                     </script>
@@ -268,7 +273,7 @@
     </script>
 
     <script src="{% static 'js/home.js'%}"></script>
-    
+
     <script>
         window.addEventListener('scroll', () => {
             let target = document.querySelector(".date-time-social-links")
@@ -294,7 +299,6 @@
 
     {% block script %}
     <script>
-    
         $(document).ready(function () {
             $('.owl-carousel').owlCarousel({
                 loop: false,
