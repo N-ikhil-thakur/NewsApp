@@ -43,7 +43,7 @@
         <h1 class="news-title">{{news.title_eng}}</h1>
         <div class="divider"></div>
         <div class="news-body">
-            {{news.description_eng|linebreaks}}
+            {{news.description_eng|safe|linebreaks}}
         </div>
         <div class="divider"></div>
         <p class="editor-date">

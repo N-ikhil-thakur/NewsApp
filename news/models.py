@@ -9,6 +9,7 @@ from io import BytesIO
 from PIL import Image
 from django.core.files import File
 
+from djrichtextfield.models import RichTextField
 
 def compress(image):
     im = Image.open(image)
@@ -37,18 +38,18 @@ class News(models.Model):
     title_eng = models.CharField(
         max_length=250, null=True, verbose_name='Title', default="No Title")
 
-    description = models.TextField(
+    description = RichTextField(
         verbose_name='विवरण', default="विवरण भेटिएन")
-    description_eng = models.TextField(
+    description_eng = RichTextField(
         null=True, verbose_name='Description', default="No description")
 
     display_picture = models.ImageField(default='image_placeholder.png', null=True, blank=True)
 
     editor = models.CharField(
-        max_length=100, default='सहयोगी समाचार', verbose_name='सम्पादक')
+        max_length=100, default='सौम्य समाचार', verbose_name='सम्पादक')
 
     editor_eng = models.CharField(
-        max_length=100, default="Sahayogi News", verbose_name='Editor')
+        max_length=100, default="Saumya News", verbose_name='Editor')
     pub_date = models.DateTimeField(default=datetime.datetime.now())
 
     class Meta:
@@ -73,6 +74,7 @@ class WebsiteInfo(models.Model):
     title = "Website_info"
     organization_name = models.CharField(max_length=150,default="")
     organization_address = models.CharField(max_length=200,default="")
+    chief_editor = models.CharField(max_length=100 ,default="")
     darta_no = models.CharField(max_length=100 , null=True,blank=True)
     email = models.EmailField(default="")
     contact = models.CharField(max_length=100 , default="")

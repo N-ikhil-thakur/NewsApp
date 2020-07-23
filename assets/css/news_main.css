@@ -23,7 +23,7 @@
 
 
 .news .news-title {
-    font-size: 20px;
+    font-size: 18px;
     margin: 10px 0;
 }
 
@@ -31,7 +31,7 @@
     text-decoration: none;
     color: rgb(34, 99, 219);
     transition: all 0.2s ease-out;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 .news .news-title a:hover {
@@ -71,8 +71,12 @@
 .news .news-body {
     color: rgb(100, 99, 99);
     margin: 20px 0;
-    /* font-size: 20px; */
+    font-size: auto;
 }
+
+/* .news .news-body p {
+    font-size: small;
+} */
 
 .news .editor-date {
     display: block;
@@ -194,11 +198,11 @@
     }
 
     .news .news-title a {
-        font-size: 16px;
+        font-size: auto;
     }
 
     .news .news-body {
-        font-size: 16px;
+        font-size: small;
     }
 
     .empty-bx {

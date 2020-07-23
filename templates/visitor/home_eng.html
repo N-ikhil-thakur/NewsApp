@@ -44,7 +44,7 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"
         nonce="9MhxJ60M"></script>
     <!-- ----------------------------- -->
-    <div class="root">
+    <div class="root english">
         <div class="hdr">
             <div class="logo">
                 <a href="{% url 'homepage_eng' %}">
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="news-bdy">{{news.description_eng|truncatechars:100}}</p>
+                        <div class="news-bdy">{{news.description_eng|safe|truncatechars:100}}</div>
                         <p class="editor-date"><span class="news-editor">{{news.editor_eng}}</span><span
                                 class="news-pub-date">{{news.pub_date}}</span></p>
                     </div>
@@ -168,6 +168,9 @@
                     </h4>
                     <p class="darta-no">
                         Information Department Registration No : {{website_info.darta_no}}
+                    </p>
+                    <p class="chief-editor">
+                        प्रमुख सम्पादक : {{website_info.chief_editor}}
                     </p>
                     <p class="address">
                         {{website_info.organization_name}} {{website_info.organization_address}}

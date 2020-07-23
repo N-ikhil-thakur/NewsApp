@@ -22,7 +22,8 @@ from django.conf import settings
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
     path('owner/', admin.site.urls),
-    path('', include('news.urls'))
+    path('', include('news.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -50,7 +50,7 @@
 
         </div>
 
-        <p class="news-body">{{news.description_eng|truncatechars:100}}</p>
+        <div class="news-body">{{news.description_eng|safe|truncatechars:100}}</div>
         <p class="editor-date">
             <span class="news-editor">{{news.editor_eng}}</span>
             <span class="news-pub-date">{{news.pub_date}}</span>
