@@ -516,7 +516,7 @@ abbr[title] {
     }
 
     *::-webkit-scrollbar {
-        height: 3px;
+        height: 0px;
     }
 
     *::-webkit-scrollbar-thumb {

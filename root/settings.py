@@ -57,7 +57,7 @@ DJRICHTEXTFIELD_CONFIG = {
     'settings': {
         'menubar': True,
         'plugins': 'link image',
-        'toolbar': 'bold italic | link image | removeformat',
+        'toolbar': 'bold | italic | link image | removeformat',
         'width': 1000,
         'height':400
     }
