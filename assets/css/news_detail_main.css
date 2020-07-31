@@ -142,7 +142,7 @@
     }
 }
 
-@media only screen and (min-width:900px) {
+@media only screen and (min-width:900px) {  
     .current-news {
         width: 80%;
     }
@@ -166,6 +166,6 @@
     }
 
     .current-news .news-body p {
-        font-size: 19px;
+        font-size: 19px;    
     }
 }

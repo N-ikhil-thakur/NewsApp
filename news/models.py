@@ -15,7 +15,7 @@ def compress(image):
     im = Image.open(image)
     im = im.convert("RGB")
     im_io = BytesIO() 
-    im.save(im_io, 'JPEG' ,quality=80 , optimize=True) 
+    im.save(im_io, 'JPEG' ,quality=70 , optimize=True) 
     new_image = File(im_io, name=image.name)
     return new_image
 
@@ -104,7 +104,7 @@ class DevelopersInfo(models.Model):
     instagram = models.URLField()
     facebook = models.URLField()
     twitter = models.URLField()
-    notice = models.TextField(blank=True,null=True)
+    notice = RichTextField(blank=True,null=True)
 
     def save(self, *args, **kwargs):
         if not self.pk and DevelopersInfo.objects.exists():

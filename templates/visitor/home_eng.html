@@ -170,7 +170,7 @@
                         Information Department Registration No : {{website_info.darta_no}}
                     </p>
                     <p class="chief-editor">
-                        प्रमुख सम्पादक : {{website_info.chief_editor}}
+                        Chief Editor : {{website_info.chief_editor}}
                     </p>
                     <p class="address">
                         {{website_info.organization_name}} {{website_info.organization_address}}
@@ -239,9 +239,9 @@
                     <span class="website"><a href="{{developers_info.website}}" target="_blank">{{developers_info.name}}
                             website</a></span>
                 </p>
-                <p class="notice-bx">
-                    {{developers_info.notice}}
-                </p>
+                <div class="notice-bx">
+                    {{developers_info.notice|safe}}
+                </div>
                 <div class="seperator"></div>
                 <div class="breaker">
                     Social Media Links

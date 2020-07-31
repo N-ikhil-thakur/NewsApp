@@ -450,6 +450,15 @@ abbr[title] {
     border-radius: 5px;
 }
 
+.developers-contact-info .notice-bx {
+    width: 100%;
+    text-align: left;
+}
+
+.developers-contact-info .notice-bx span {
+    float: none;
+}
+
 .copyright {
     width: 100vw;
     background: white;
