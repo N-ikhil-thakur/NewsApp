@@ -1,3 +1,6 @@
+import os
+from django.conf import  settings
+
 from django.db import models
 import datetime
 from django.core.exceptions import ValidationError
@@ -15,7 +18,7 @@ def compress(image):
     im = Image.open(image)
     im = im.convert("RGB")
     im_io = BytesIO() 
-    im.save(im_io, 'JPEG' ,quality=70 , optimize=True) 
+    im.save(im_io, 'JPEG' ,quality=70) 
     new_image = File(im_io, name=image.name)
     return new_image
 
@@ -57,11 +60,12 @@ class News(models.Model):
 
     def save(self, *args, **kwargs):
             if self.display_picture:
-                new_image = compress(self.display_picture)
-                self.display_picture = new_image
+                if self.display_picture != News.objects.get(pk=self.pk).display_picture:
+                    new_image = compress(self.display_picture)
+                    self.display_picture = new_image
             else:
                 self.display_picture = "image_placeholder.png"
-            super().save(*args, **kwargs)
+            super(News,self).save(*args, **kwargs)
 
 
     def __str__(self):

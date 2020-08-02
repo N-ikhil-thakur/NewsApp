@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'smartfields',
     'news.apps.NewsConfig',
 
-    'django_cleanup.apps.CleanupConfig',
+    'django_cleanup',
 ]
 
 # X_FRAME_OPTIONS = 'SAMEORIGIN'

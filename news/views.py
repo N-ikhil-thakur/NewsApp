@@ -1,5 +1,11 @@
+import re
+
 from django.shortcuts import render
 from .models import NewsType, News, WebsiteInfo , DevelopersInfo
+
+from django.db.models import Q
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -85,8 +91,8 @@ def newsPage(request, newstype):
 
 def newsPage_eng(request, newstype):
     news_types = NewsType.objects.all()
-    websiteInfo = ""
     developersInfo = ""
+    websiteInfo = ""
     if WebsiteInfo.objects.all().exists():
         websiteInfo = WebsiteInfo.objects.all()[0]
     if  DevelopersInfo.objects.all().exists():
@@ -157,3 +163,73 @@ def news_detail_page_eng(request, newstype, id):
         'news_suggestions': newses_suggestions, 
         'website_info': websiteInfo,
         'developers_info':developersInfo,})
+
+
+
+def searchNews(request):
+    websiteInfo = ""
+    if WebsiteInfo.objects.all().exists():
+        websiteInfo = WebsiteInfo.objects.all()[0]
+    news_types = NewsType.objects.all()
+    if request.method =='GET':
+        query = request.GET.get("q")
+        allowed = re.search("^(?!\s+$).+",query)
+        if allowed:
+            lookups = Q(title__icontains=query) | Q(title_eng__icontains=query)
+            results_list = News.objects.filter(lookups).distinct().order_by('-pub_date')
+            page = request.GET.get('page', 1)
+            paginator = Paginator(results_list, 6)
+
+            try:
+                results = paginator.page(page)
+            except PageNotAnInteger:
+                results = paginator.page(1)
+            except EmptyPage:
+                results = paginator.page(paginator.num_pages)
+            
+
+            return render(request , 'visitor/search_result.html' , {
+                'results':results,
+                'news_types':news_types,
+                'website_info':websiteInfo,
+                'page_type':'search'
+            })
+        else:
+            return  HttpResponseRedirect(reverse('homepage'))
+    else:
+        return  HttpResponseRedirect(reverse('homepage'))
+
+
+
+def searchNewsEng(request):
+    websiteInfo = ""
+    if WebsiteInfo.objects.all().exists():
+        websiteInfo = WebsiteInfo.objects.all()[0]
+    news_types = NewsType.objects.all()
+    if request.method =='GET':
+        query = request.GET.get("q")
+        allowed = re.search("^(?!\s+$).+",query)
+        if allowed:
+            lookups = Q(title__icontains=query) | Q(title_eng__icontains=query)
+            results_list = News.objects.filter(lookups).distinct().order_by('-pub_date')
+            page = request.GET.get('page', 1)
+            paginator = Paginator(results_list, 6)
+
+            try:
+                results = paginator.page(page)
+            except PageNotAnInteger:
+                results = paginator.page(1)
+            except EmptyPage:
+                results = paginator.page(paginator.num_pages)
+
+            return render(request , 'visitor/search_result_eng.html' , {
+                'results':results , 
+                'news_types':news_types,
+                'website_info':websiteInfo,
+                'page_type':'search'
+            })
+        else:
+            return  HttpResponseRedirect(reverse('homepage_eng'))
+
+    else:
+        return  HttpResponseRedirect(reverse('homepage_eng'))

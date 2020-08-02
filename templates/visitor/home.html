@@ -63,11 +63,13 @@
                             <!-- time from js--></span></span>
                 </div>
                 <div class="social-link">
+                {% block language_changer %}
                     <abbr title="Translate To English"><strong>
                             <a href="{% block language_url%}{% url 'homepage_eng'%}{% endblock %}"
                                 class="language-changer">
                                 <i class="fas fa-globe-asia"></i>English</a>
                         </strong></abbr>
+                {% endblock language_changer%}
                     <abbr title="Like us on facebook"><a href="{{website_info.facebook}}" class="link facebook">
                             <i class="fab fa-facebook"></i></a></abbr>
                     <abbr title="Follow us on twitter"><a href="{{website_info.twitter}}" class="link twitter">
