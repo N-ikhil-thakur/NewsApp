@@ -234,6 +234,49 @@ abbr[title] {
     right: 0%;
 }
 
+.search-bx {
+    width: 100%;
+    padding: 10px 0 0 10px;
+    margin-bottom: -10px;
+    margin-top: 7px;
+}
+
+.search-bx form {
+    float: right;
+    width: 350px;
+}
+
+.search-bx input,
+button {
+    height: 40px;
+    margin: 0px -3px;
+    text-align: center;
+    font-size: medium;
+    padding: 3px;
+}
+
+.search-bx input {
+    width: 85%;
+}
+
+.search-bx input:focus {
+    outline: none;
+}
+
+.search-bx button {
+    width: 15%;
+    background: teal;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.search-bx button:focus,
+.search-bx button:active {
+    outline: none;
+}
 
 .ftr {
     width: 100%;
@@ -523,6 +566,12 @@ abbr[title] {
     .nbr-bx .nbar-itms a {
         font-size: 18px;
     }
+
+    .search-bx form {
+        width: 100%;
+    }
+
+
 
     *::-webkit-scrollbar {
         height: 0px;

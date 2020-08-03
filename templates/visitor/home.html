@@ -63,13 +63,13 @@
                             <!-- time from js--></span></span>
                 </div>
                 <div class="social-link">
-                {% block language_changer %}
+                    {% block language_changer %}
                     <abbr title="Translate To English"><strong>
                             <a href="{% block language_url%}{% url 'homepage_eng'%}{% endblock %}"
                                 class="language-changer">
                                 <i class="fas fa-globe-asia"></i>English</a>
                         </strong></abbr>
-                {% endblock language_changer%}
+                    {% endblock language_changer%}
                     <abbr title="Like us on facebook"><a href="{{website_info.facebook}}" class="link facebook">
                             <i class="fab fa-facebook"></i></a></abbr>
                     <abbr title="Follow us on twitter"><a href="{{website_info.twitter}}" class="link twitter">
@@ -91,7 +91,18 @@
                 {% endfor %}
 
             </div>
+
+            {% block search_box %}
+            <div class="search-bx">
+                <form action="{%  url  'search_news' %}" method="get">
+                    <input type="search" name="q" id="" placeholder="Search...">
+                    <button type="submit"><i class='fas fa-search'></i></button>
+                </form>
+            </div>
+            {% endblock search_box %}
+
         </div>
+
         <div class="main">
             {% block main %}
             {% for news_type , values in news_types_with_news.items %}
@@ -153,8 +164,9 @@
             {% endblock main%}
         </div>
 
-        <div class="ftr">
+        <div style="background:rgb(139, 134, 134,0.7);height:5px;margin-top:15px;"></div>
 
+        <div class="ftr">
             <div class="contact-info-bx">
 
                 <div class="div-type">

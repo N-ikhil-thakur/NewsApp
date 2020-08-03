@@ -9,9 +9,8 @@
 {% block main%}
 
 {% if results %}
-
-<p class="search_status"> search for <span style="color:teal"><b>"{{request.GET.q}}"</b></span>shows the following result .</p>
-
+<p class="search-status"> search for <span style="color:teal"><b>"{{request.GET.q}}"</b></span>shows the following
+    result .</p>
 {% endif %}
 
 <div class="news-grid-bx">
@@ -67,7 +66,8 @@
 
     <div class="empty-bx">
         <h2 class="empty-message">
-            <i class="fas fa-exclamation-circle"> </i> No result found with the word <span style="color:teal">"{{request.GET.q}}"</span>
+            <i class="fas fa-exclamation-circle"> </i> No result found with the word <span
+                style="color:teal">"{{request.GET.q}}"</span>
         </h2>
     </div>
 

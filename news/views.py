@@ -20,10 +20,10 @@ def homepage(request):
     news_types = NewsType.objects.all()
     websiteInfo = ""
     developersInfo = ""
-    if WebsiteInfo.objects.all().exists():
-        websiteInfo = WebsiteInfo.objects.all()[0]
     if  DevelopersInfo.objects.all().exists():
         developersInfo = DevelopersInfo.objects.all()[0]
+    if WebsiteInfo.objects.all().exists():
+        websiteInfo = WebsiteInfo.objects.all()[0]
     news_types_with_news = {}
     for items in NewsType.objects.all():
         news_types_with_news[items] = items.news.all().order_by(
@@ -170,6 +170,11 @@ def searchNews(request):
     websiteInfo = ""
     if WebsiteInfo.objects.all().exists():
         websiteInfo = WebsiteInfo.objects.all()[0]
+    
+    developersInfo = ""
+    if  DevelopersInfo.objects.all().exists():
+        developersInfo = DevelopersInfo.objects.all()[0]
+
     news_types = NewsType.objects.all()
     if request.method =='GET':
         query = request.GET.get("q")
@@ -192,7 +197,8 @@ def searchNews(request):
                 'results':results,
                 'news_types':news_types,
                 'website_info':websiteInfo,
-                'page_type':'search'
+                'page_type':'search',
+                'developers_info':developersInfo,
             })
         else:
             return  HttpResponseRedirect(reverse('homepage'))
@@ -205,6 +211,11 @@ def searchNewsEng(request):
     websiteInfo = ""
     if WebsiteInfo.objects.all().exists():
         websiteInfo = WebsiteInfo.objects.all()[0]
+    
+    developersInfo = ""
+    if  DevelopersInfo.objects.all().exists():
+        developersInfo = DevelopersInfo.objects.all()[0]
+
     news_types = NewsType.objects.all()
     if request.method =='GET':
         query = request.GET.get("q")
@@ -226,7 +237,8 @@ def searchNewsEng(request):
                 'results':results , 
                 'news_types':news_types,
                 'website_info':websiteInfo,
-                'page_type':'search'
+                'page_type':'search',
+                'developers_info':developersInfo,
             })
         else:
             return  HttpResponseRedirect(reverse('homepage_eng'))
