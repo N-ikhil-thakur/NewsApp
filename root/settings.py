@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z+v1+7+z4sg@r62#nu3n+&+%g$^exwbq=v=j_i)!-9-)oh#ad9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['saumyaasanchar.tk' , 'www.saumyaasanchar.tk']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['saumyasanchar.com' , 'www.saumyasanchar.com']
 
 # Application definition
 
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 ]
 
 # X_FRAME_OPTIONS = 'SAMEORIGIN'
-GRAPPELLI_ADMIN_TITLE = "Sahayogi News Administration"
+GRAPPELLI_ADMIN_TITLE = "Saumya Sanchar Administration"
 
 DJRICHTEXTFIELD_CONFIG = {
     'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
@@ -97,10 +97,19 @@ WSGI_APPLICATION = 'root.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': ,
+        'USER':,
+        'PASSWORD':,
+        'HOST': 'localhost',
     }
 }
 
@@ -149,5 +158,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets')
 ]
 
-# STATIC_ROOT = 'assets'
-MEDIA_ROOT = 'assets/images'
+STATIC_ROOT = '/home/saumya/public_html/static'
+MEDIA_ROOT = '/home/saumya/public_html/media'
