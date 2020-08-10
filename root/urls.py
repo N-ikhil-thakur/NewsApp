@@ -18,12 +18,16 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from filebrowser.sites import site
+
 
 urlpatterns = [
+    path('owner/filebrowser/', site.urls),
     path('grappelli/', include('grappelli.urls')),
     path('owner/', admin.site.urls),
     path('', include('news.urls')),
-    path('djrichtextfield/', include('djrichtextfield.urls')),
+    # path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

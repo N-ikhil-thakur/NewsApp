@@ -13,6 +13,8 @@ from PIL import Image
 from django.core.files import File
 
 from djrichtextfield.models import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.fields import RichTextField
 
 def compress(image):
     im = Image.open(image)
@@ -28,8 +30,8 @@ class NewsType(models.Model):
     title_eng = models.CharField(
         max_length=100, default="Type Of News ", verbose_name='Type Of News')
 
-    def __str__(self):
-        return f'{self.title}'
+    def __unicode__(self):
+        return u'%s' % self.title
 
 
 class News(models.Model):

@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +28,7 @@ SECRET_KEY = 'z+v1+7+z4sg@r62#nu3n+&+%g$^exwbq=v=j_i)!-9-)oh#ad9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['saumyaasanchar.tk' , 'www.saumyaasanchar.tk']
+# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['saumyasanchar.com' , 'www.saumyasanchar.com']
 
 # Application definition
@@ -34,6 +37,8 @@ INSTALLED_APPS = [
     # 'admin_interface',
     # 'colorfield',
     'grappelli',
+    'filebrowser',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,31 +46,53 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'djrichtextfield',
+    # 'djrichtextfield',
     'smartfields',
+    'ckeditor',
+    'ckeditor_uploader',
     'news.apps.NewsConfig',
 
     'django_cleanup',
 ]
 
-# X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 GRAPPELLI_ADMIN_TITLE = "Saumya Sanchar Administration"
 
-DJRICHTEXTFIELD_CONFIG = {
-    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
-    'init_template': 'djrichtextfield/init/tinymce.js',
-    'settings': {
-        'menubar': True,
-        'plugins': 'link image',
-        'toolbar': 'bold | italic | link image | removeformat',
-        'width': 1000,
-        'height':400
-    }
-}
+# file browser settings 
+from filebrowser.sites import site
+site.directory = ""
+EXTENSIONS = getattr('settings', "FILEBROWSER_EXTENSIONS", {
+    'Image': ['.jpg','.jpeg','.gif','.png','.tif','.tiff'],
+    'Document': ['.pdf','.doc','.rtf','.txt','.xls','.csv'],
+    'Video': ['.mov','.wmv','.mpeg','.mpg','.avi','.rm'],
+    'Audio': ['.mp3','.mp4','.wav','.aiff','.midi','.m4p']
+})
+
+SELECT_FORMATS = getattr('settings', "FILEBROWSER_SELECT_FORMATS", {
+    'file': ['Image','Document','Video','Audio'],
+    'image': ['Image'],
+    'document': ['Document'],
+    'media': ['Video','Audio'],
+})
+
+# DJRICHTEXTFIELD_CONFIG = {
+#     'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
+#     'init_template': 'djrichtextfield/init/tinymce.js',
+#     'settings': {
+#         'menubar': True,
+#         'plugins': 'link image',
+#         'toolbar': 'bold | italic | link image | removeformat',
+#         'width': 1000,
+#         'height':400
+#     }
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -160,3 +187,33 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = '/home/saumya/public_html/static'
 MEDIA_ROOT = '/home/saumya/public_html/media'
+# STATIC_ROOT = os.path.join(BASE_DIR,'static') 
+# MEDIA_ROOT = os.path.join(BASE_DIR,'assets/images')
+
+
+
+
+
+
+
+
+
+
+# ckeditor configuration
+
+SITE_ID = 1
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_BROWSE_SHOW_DIRS=True
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+CKEDITOR_FORCE_JPEG_COMPRESSION=True
+CKEDITOR_IMAGE_QUALITY= 50
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin':'moono',
+        'toolbar': 'full',
+    },
+}

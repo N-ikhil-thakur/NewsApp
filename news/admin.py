@@ -24,6 +24,9 @@ class NewsTypeAdmin(admin.ModelAdmin):
     search_fields = ("title_eng",)
     ordering = ("id",)
 
+class Uploaded_Images(admin.ModelAdmin):
+    def link(self):
+        return mark_safe("<a href='%s'>edit</a>" % 'owner/filebrowser/browse')
 
 
 admin.site.register(NewsType, NewsTypeAdmin)
